@@ -1,0 +1,406 @@
+﻿@model Hotel
+
+@{
+    Layout = "_LayoutHotel1";
+    int i = 0;
+
+}
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+
+<div class="card-header pb-0">
+    <div class="row d-flex flex-row">
+        <div class="col-lg-12 col-md-8 col-8">
+            <h2> @localizer["Hotel"] </h2>
+            <button data-bs-toggle="modal" data-bs-target="#EditModal" onclick="clearformHotel()" class="cursor-pointer bg-transparent border-0" style="display:inline-block">
+                <i class="fa-solid fa-plus text-success"></i>
+            </button>
+         </div>
+    </div>
+</div>
+
+<div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+        <div style="background-color:white">
+
+            <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+                <thead>
+                    <tr>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["NameAr"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["NameEn"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["RoomsNo"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["FloorsNo"] </th>
+                        <th class="text-uppercase   font-weight-bolder "> @localizer["FullAddressAr"] </th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["CheckInTime"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["CheckOut"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["ActualCheckOut"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["VatNo"]</th>
+                        @*<th class="text-uppercase   font-weight-bolder ">@localizer["Logo"]</th>*@
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Edit"] </th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Delete"]</th>
+                        <th class="text-uppercase  text-s font-weight-bolder  ps-2">@localizer["Add Contact"]</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in (List<Hotel>)ViewData["Hotels"])
+                    {
+                        <tr>
+
+                            <td class='align-middle text-center text-sm'>@(++i)</td>
+                            <td class='align-middle text-center text-sm'>@item.NameAr</td>
+                            <td class='align-middle text-center text-sm'>@item.NameEn</td>
+                             <td class='align-middle text-center text-sm'>@item.RoomNo</td>
+                             <td class='align-middle text-center text-sm'>@item.FloorNo</td>
+                             <td class='align-middle text-center text-sm'>@item.FullAddressAr</td>
+                             <td class='align-middle text-center text-sm'>@item.CheckInTime</td>
+                             <td class='align-middle text-center text-sm'>@item.CheckOut</td>
+                             <td class='align-middle text-center text-sm'>@item.ActualCheckOut</td>
+                             <td class='align-middle text-center text-sm'>@item.VatNo</td>
+                             @*<td class='align-middle text-center text-sm'>@item.Logo</td>*@
+                           
+                            <td class='align-middle text-center text-sm'>
+                                <button id='EditForm' data-bs-toggle='modal' data-bs-target='#EditModal' class='card-link btn text-center w-30 mx-2 mx-2 edit' onclick="EditFormHotel(@item.Id)">
+                                    <i class='fa-solid fa-pen' aria-hidden='true'></i>
+                                </button>
+                            </td>
+                            <td class='float-end me-4'>
+                                <button id='DeleteForm' class='btn btn-link text-danger text-gradient px-3 mb-0' data-bs-toggle='modal' data-bs-target='#DeleteModal' onclick="DeleteFormHotel(@item.Id)">
+                                    <i class='fa-regular fa-trash-can me-2' aria-hidden='true'></i>
+                                </button>
+                            </td>
+
+                            <td class='align-middle text-center text-sm'>
+                                <button id='contactForm' data-bs-toggle='modal' data-bs-target='#contactModal' class='card-link btn text-center w-30 mx-2 mx-2' onclick='GetAllHotelcontact(@item.Id)'>
+                                    <i class='fa-solid fa-plus text-success'></i>
+                                </button>
+                            </td>
+
+
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+@*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditModal" onclick="clearformHotel()">
+    @localizer["Add New"]
+</button>
+*@
+
+<div class="modal" id="EditModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title"> @localizer["Add New"] /  @localizer["Edit"] </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    @using (Html.BeginForm("UpdateHotel", "Settings", FormMethod.Post))
+                    {
+                        <div class="modal-body"> 
+                                <div class="form-group">
+                                    <input type="hidden" asp-for="Id" id="id" />
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label asp-for="NameEn" class="control-label"></label>
+                                            <input asp-for="NameEn" required id="nameen" class="form-control" />
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="NameAr" class="control-label"></label>
+                                            <input asp-for="NameAr" required id="namear" class="form-control" />
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label asp-for="FloorNo" class="control-label"></label>
+                                            <input asp-for="FloorNo" required id="floorNo" class="form-control" />
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="RoomNo" class="control-label"></label>
+                                            <input asp-for="RoomNo" required id="roomNo" class="form-control" />
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label asp-for="FullAddressEn" class="control-label"></label>
+                                            <input asp-for="FullAddressEn" required id="fullAddressEn" class="form-control" />
+
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="FullAddressAr" class="control-label"></label>
+                                            <input asp-for="FullAddressAr" required id="fullAddressAr" class="form-control" />
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-groupcol">
+
+                                            <label asp-for="CountryId" class="control-label"></label>
+                                            <select asp-for="CountryId" id="countryId" class="form-control"></select>
+
+                                        </div>
+                                        <div class="col">
+
+                                            <label asp-for="gps" class="control-label"></label>
+                                            <input asp-for="gps" required id="gps" class="form-control" />
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label asp-for="BuildingNo" class="control-label"></label>
+                                            <input asp-for="BuildingNo" required id="buildingNo" class="form-control" />
+
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="PostBox" class="control-label"></label>
+                                            <input asp-for="PostBox" required id="postBox" class="form-control" />
+
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="ZipeCode" class="control-label"></label>
+                                            <input asp-for="ZipeCode" required id="zipeCode" class="form-control" />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label asp-for="CheckInTime" class="control-label"></label>
+                                            <input asp-for="CheckInTime" required id="checkInTime" class="form-control" />
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="CheckOut" class="control-label"></label>
+                                            <input asp-for="CheckOut" required id="checkOut" class="form-control" />
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label asp-for="ActualCheckOut" class="control-label"></label>
+                                            <input asp-for="ActualCheckOut" required id="actualCheckOut" class="form-control" />
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label asp-for="VatNo" class="control-label"></label>
+                                            <input asp-for="VatNo" required id="vatNo" class="form-control" />
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="CR" class="control-label"></label>
+                                            <input asp-for="CR" required id="cR" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label asp-for="Logo" class="control-label"></label>
+                                            <input asp-for="Logo" required id="logo" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div> 
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">@localizer["Submit"]</button>
+                            <button type="button" onclick="clearformHotel()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="DeleteModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title"> @localizer["Delete"]  </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    @using (Html.BeginForm("DeleteHotel", "Settings", FormMethod.Post))
+                    {
+                        <div class="modal-body"> 
+                                <div class="form-group">
+                                    <input type="hidden" asp-for="Id" id="idd" />
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label asp-for="NameEn" class="control-label"></label>
+                                            <input asp-for="NameEn" required id="nameend" class="form-control" />
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="NameAr" class="control-label"></label>
+                                            <input asp-for="NameAr" required id="nameard" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label asp-for="FloorNo" class="control-label"></label>
+                                            <input asp-for="FloorNo" required id="floorNod" class="form-control" />
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="RoomNo" class="control-label"></label>
+                                            <input asp-for="RoomNo" required id="roomNod" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col">
+                                            <label asp-for="CountryId" class="control-label"></label>
+                                            <select asp-for="CountryId" id="countryIdd" class="form-control"></select>
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="FullAddressAr" class="control-label"></label>
+                                            <input asp-for="FullAddressAr" required id="fullAddressEnd" class="form-control" />
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="BuildingNo" class="control-label"></label>
+                                            <input asp-for="BuildingNo" required id="buildingNod" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label asp-for="CheckInTime" class="control-label"></label>
+                                            <input asp-for="CheckInTime" required id="checkInTimed" class="form-control" />
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="CheckOut" class="control-label"></label>
+                                            <input asp-for="CheckOut" required id="checkOutd" class="form-control" />
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="ActualCheckOut" class="control-label"></label>
+                                            <input asp-for="ActualCheckOut" required id="actualCheckOutd" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label asp-for="VatNo" class="control-label"></label>
+                                            <input asp-for="VatNo" required id="vatNod" class="form-control" />
+                                        </div>
+                                        <div class="col">
+                                            <label asp-for="CR" class="control-label"></label>
+                                            <input asp-for="CR" required id="cRd" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                </div> 
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">@localizer["Delete"]</button>
+                            <button type="button" onclick="clearformHotel()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*add customer contact*@
+
+<div class="modal" id="contactModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title"> @localizer["Add New"] </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    <div class="modal-body">
+                        <input type="hidden" id="hotelid" />
+                        <input type="hidden" id="contactid" />
+                        <input type="hidden" id="isDefault" value="true" /> 
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="control-label">وسيلة الاتصال </label>
+                                <select id="contactTypeId" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="control-label">Value</label>
+                                <input required id="value" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label class="control-label">Description</label>
+                                <input required id="description" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="saveHotelcontact">@localizer["Submit"]</button>
+                    <button type="button" onclick="clearHotelContactModal()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                </div>
+
+                <div class="table-responsive" style="color:white">
+
+                    <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+
+
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["ContactType"]</th>
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["Value"]</th>
+
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["Decription"] </th>
+                                @*<th class="text-uppercase   font-weight-bolder ">@localizer["Edit"] </th>
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["Delete"]</th>*@
+
+
+                            </tr>
+                        </thead>
+                        <tbody id="hotelContactbody">
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+     
+}

@@ -1,0 +1,1093 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\obj\\Release\\net7.0\\scopedcss\\projectbundle\\NileHotels.bundle.scp.css",
+      "PackagePath": "staticwebassets\\NileHotels.bundle.scp.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\Reports\\FurnitureReport.rdlc",
+      "PackagePath": "staticwebassets\\Reports\\FurnitureReport.rdlc"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\css\\bootstrap ar.css",
+      "PackagePath": "staticwebassets\\assets\\css\\bootstrap ar.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\css\\nucleo-svg.css",
+      "PackagePath": "staticwebassets\\assets\\css\\nucleo-svg.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\apple-icon.png",
+      "PackagePath": "staticwebassets\\assets\\img\\apple-icon.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\curved-images\\curved19.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\curved-images\\curved19.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\curved-images\\curved19.png",
+      "PackagePath": "staticwebassets\\assets\\img\\curved-images\\curved19.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\down-arrow-dark.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\down-arrow-dark.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\down-arrow-white.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\down-arrow-white.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\down-arrow.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\down-arrow.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\favicon.png",
+      "PackagePath": "staticwebassets\\assets\\img\\favicon.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\loading-screen.png",
+      "PackagePath": "staticwebassets\\assets\\img\\loading-screen.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\logo-ct-dark.png",
+      "PackagePath": "staticwebassets\\assets\\img\\logo-ct-dark.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\logo-ct.png",
+      "PackagePath": "staticwebassets\\assets\\img\\logo-ct.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\logos\\mastercard.png",
+      "PackagePath": "staticwebassets\\assets\\img\\logos\\mastercard.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\logos\\visa.png",
+      "PackagePath": "staticwebassets\\assets\\img\\logos\\visa.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\shapes\\pattern-lines.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\shapes\\pattern-lines.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\shapes\\shape-1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\shapes\\shape-1.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\shapes\\shape-2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\shapes\\shape-2.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\shapes\\shape-3.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\shapes\\shape-3.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\shapes\\wave-down.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\shapes\\wave-down.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\shapes\\wave-up.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\shapes\\wave-up.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\shapes\\waves-gray.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\shapes\\waves-gray.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\img\\shapes\\waves-white.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\shapes\\waves-white.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\js\\core\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\core\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\js\\core\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\core\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\js\\core\\popper.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\core\\popper.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\js\\plugins\\Chart.extension.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugins\\Chart.extension.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\js\\plugins\\bootstrap-notify.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugins\\bootstrap-notify.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\js\\plugins\\chartjs.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\plugins\\chartjs.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\assets\\js\\visuals.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\visuals.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\css\\_elements.css",
+      "PackagePath": "staticwebassets\\css\\_elements.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\css\\_footer.css",
+      "PackagePath": "staticwebassets\\css\\_footer.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\css\\_testimonial.css",
+      "PackagePath": "staticwebassets\\css\\_testimonial.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\css\\_variables.css",
+      "PackagePath": "staticwebassets\\css\\_variables.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\css\\responsive.css",
+      "PackagePath": "staticwebassets\\css\\responsive.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\css\\style (Mohammad Rocky's conflicted copy 2018-05-08).css",
+      "PackagePath": "staticwebassets\\css\\style (Mohammad Rocky's conflicted copy 2018-05-08).css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\css\\style.css (Mohammad Rocky's conflicted copy 2018-05-08).map",
+      "PackagePath": "staticwebassets\\css\\style.css (Mohammad Rocky's conflicted copy 2018-05-08).map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\css\\style.css.map",
+      "PackagePath": "staticwebassets\\css\\style.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\fonts\\FontAwesome.otf",
+      "PackagePath": "staticwebassets\\fonts\\FontAwesome.otf"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\fonts\\fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.eot"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\fonts\\fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\fonts\\fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\fonts\\fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\fonts\\fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff2"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\Logo.png",
+      "PackagePath": "staticwebassets\\image\\Logo.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\about_banner.jpg",
+      "PackagePath": "staticwebassets\\image\\about_banner.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\about_bg.jpg",
+      "PackagePath": "staticwebassets\\image\\about_bg.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\apple-icon.png",
+      "PackagePath": "staticwebassets\\image\\apple-icon.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\banner\\banner-1.jpg",
+      "PackagePath": "staticwebassets\\image\\banner\\banner-1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\banner\\banner-2.jpg",
+      "PackagePath": "staticwebassets\\image\\banner\\banner-2.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\banner\\banner-2_tmp18321",
+      "PackagePath": "staticwebassets\\image\\banner"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\banner_bg.jpg",
+      "PackagePath": "staticwebassets\\image\\banner_bg.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\add.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\add.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\author.png",
+      "PackagePath": "staticwebassets\\image\\blog\\author.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\blog-1.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\blog-1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\blog-2.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\blog-2.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\blog-3.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\blog-3.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\c1.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\c1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\c2.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\c2.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\c3.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\c3.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\c4.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\c4.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\c5.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\c5.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\c6.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\c6.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\cat-post\\cat-post-1.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\cat-post\\cat-post-1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\cat-post\\cat-post-2.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\cat-post\\cat-post-2.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\cat-post\\cat-post-3.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\cat-post\\cat-post-3.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\feature-img1.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\feature-img1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\main-blog\\m-blog-1.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\main-blog\\m-blog-1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\main-blog\\m-blog-2.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\main-blog\\m-blog-2.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\main-blog\\m-blog-3.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\main-blog\\m-blog-3.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\main-blog\\m-blog-4.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\main-blog\\m-blog-4.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\main-blog\\m-blog-5.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\main-blog\\m-blog-5.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\next.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\next.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\post-img1.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\post-img1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\post-img2.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\post-img2.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\post1.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\post1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\post2.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\post2.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\post3.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\post3.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\post4.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\post4.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\prev.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\prev.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\blog\\s-img.jpg",
+      "PackagePath": "staticwebassets\\image\\blog\\s-img.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\curved-images\\curved19.jpg",
+      "PackagePath": "staticwebassets\\image\\curved-images\\curved19.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\curved-images\\curved19.png",
+      "PackagePath": "staticwebassets\\image\\curved-images\\curved19.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\down-arrow-dark.svg",
+      "PackagePath": "staticwebassets\\image\\down-arrow-dark.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\down-arrow-white.svg",
+      "PackagePath": "staticwebassets\\image\\down-arrow-white.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\down-arrow.svg",
+      "PackagePath": "staticwebassets\\image\\down-arrow.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\_DS_Store",
+      "PackagePath": "staticwebassets\\image\\elements"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\a.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\a.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\a2.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\a2.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\d.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\d.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\disabled-check.png",
+      "PackagePath": "staticwebassets\\image\\elements\\disabled-check.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\disabled-radio.png",
+      "PackagePath": "staticwebassets\\image\\elements\\disabled-radio.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\f1.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\f1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\f2.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\f2.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\f3.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\f3.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\f4.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\f4.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\f5.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\f5.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\f6.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\f6.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\f7.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\f7.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\f8.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\f8.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\g1.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\g1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\g2.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\g2.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\g3.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\g3.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\g4.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\g4.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\g5.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\g5.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\g6.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\g6.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\g7.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\g7.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\g8.jpg",
+      "PackagePath": "staticwebassets\\image\\elements\\g8.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\primary-check.png",
+      "PackagePath": "staticwebassets\\image\\elements\\primary-check.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\primary-radio.png",
+      "PackagePath": "staticwebassets\\image\\elements\\primary-radio.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\success-check.png",
+      "PackagePath": "staticwebassets\\image\\elements\\success-check.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\success-radio.png",
+      "PackagePath": "staticwebassets\\image\\elements\\success-radio.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\user1.png",
+      "PackagePath": "staticwebassets\\image\\elements\\user1.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\elements\\user2.png",
+      "PackagePath": "staticwebassets\\image\\elements\\user2.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\facilites_bg.jpg",
+      "PackagePath": "staticwebassets\\image\\facilites_bg.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\favicon (2).png",
+      "PackagePath": "staticwebassets\\image\\favicon (2).png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\favicon.png",
+      "PackagePath": "staticwebassets\\image\\favicon.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\favicon_tmp18091",
+      "PackagePath": "staticwebassets\\image"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\gallery\\01-1.jpg",
+      "PackagePath": "staticwebassets\\image\\gallery\\01-1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\gallery\\01.jpg",
+      "PackagePath": "staticwebassets\\image\\gallery\\01.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\gallery\\02-1.jpg",
+      "PackagePath": "staticwebassets\\image\\gallery\\02-1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\gallery\\02.jpg",
+      "PackagePath": "staticwebassets\\image\\gallery\\02.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\gallery\\03-1.jpg",
+      "PackagePath": "staticwebassets\\image\\gallery\\03-1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\gallery\\03.jpg",
+      "PackagePath": "staticwebassets\\image\\gallery\\03.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\gallery\\04.jpg",
+      "PackagePath": "staticwebassets\\image\\gallery\\04.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\gallery\\05.jpg",
+      "PackagePath": "staticwebassets\\image\\gallery\\05.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\gallery\\06.jpg",
+      "PackagePath": "staticwebassets\\image\\gallery\\06.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\instagram\\Image-01.jpg",
+      "PackagePath": "staticwebassets\\image\\instagram\\Image-01.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\instagram\\Image-02.jpg",
+      "PackagePath": "staticwebassets\\image\\instagram\\Image-02.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\instagram\\Image-03.jpg",
+      "PackagePath": "staticwebassets\\image\\instagram\\Image-03.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\instagram\\Image-04.jpg",
+      "PackagePath": "staticwebassets\\image\\instagram\\Image-04.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\instagram\\Image-05.jpg",
+      "PackagePath": "staticwebassets\\image\\instagram\\Image-05.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\instagram\\Image-06.jpg",
+      "PackagePath": "staticwebassets\\image\\instagram\\Image-06.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\instagram\\Image-07.jpg",
+      "PackagePath": "staticwebassets\\image\\instagram\\Image-07.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\instagram\\Image-08.jpg",
+      "PackagePath": "staticwebassets\\image\\instagram\\Image-08.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\loading-screen.png",
+      "PackagePath": "staticwebassets\\image\\loading-screen.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\logo-2.png",
+      "PackagePath": "staticwebassets\\image\\logo-2.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\logo-ct-dark.png",
+      "PackagePath": "staticwebassets\\image\\logo-ct-dark.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\logo-ct.png",
+      "PackagePath": "staticwebassets\\image\\logo-ct.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\logos\\mastercard.png",
+      "PackagePath": "staticwebassets\\image\\logos\\mastercard.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\logos\\visa.png",
+      "PackagePath": "staticwebassets\\image\\logos\\visa.png"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\room1.jpg",
+      "PackagePath": "staticwebassets\\image\\room1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\room2.jpg",
+      "PackagePath": "staticwebassets\\image\\room2.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\room3.jpg",
+      "PackagePath": "staticwebassets\\image\\room3.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\room4.jpg",
+      "PackagePath": "staticwebassets\\image\\room4.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\shapes\\pattern-lines.svg",
+      "PackagePath": "staticwebassets\\image\\shapes\\pattern-lines.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\shapes\\shape-1.svg",
+      "PackagePath": "staticwebassets\\image\\shapes\\shape-1.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\shapes\\shape-2.svg",
+      "PackagePath": "staticwebassets\\image\\shapes\\shape-2.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\shapes\\shape-3.svg",
+      "PackagePath": "staticwebassets\\image\\shapes\\shape-3.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\shapes\\wave-down.svg",
+      "PackagePath": "staticwebassets\\image\\shapes\\wave-down.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\shapes\\wave-up.svg",
+      "PackagePath": "staticwebassets\\image\\shapes\\wave-up.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\shapes\\waves-gray.svg",
+      "PackagePath": "staticwebassets\\image\\shapes\\waves-gray.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\shapes\\waves-white.svg",
+      "PackagePath": "staticwebassets\\image\\shapes\\waves-white.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\testtimonial-1.jpg",
+      "PackagePath": "staticwebassets\\image\\testtimonial-1.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\image\\testtimonial-2.jpg",
+      "PackagePath": "staticwebassets\\image\\testtimonial-2.jpg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\contact.js",
+      "PackagePath": "staticwebassets\\js\\contact.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\custom.js",
+      "PackagePath": "staticwebassets\\js\\custom.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\gmaps.min.js",
+      "PackagePath": "staticwebassets\\js\\gmaps.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\jquery-3.2.1.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.2.1.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\jquery.ajaxchimp.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.ajaxchimp.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\jquery.form.js",
+      "PackagePath": "staticwebassets\\js\\jquery.form.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\mail-script.js",
+      "PackagePath": "staticwebassets\\js\\mail-script.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\nile.js",
+      "PackagePath": "staticwebassets\\js\\nile.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\nilehotels.js",
+      "PackagePath": "staticwebassets\\js\\nilehotels.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\popper.js",
+      "PackagePath": "staticwebassets\\js\\popper.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\js\\stellar.js",
+      "PackagePath": "staticwebassets\\js\\stellar.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\scss\\_accomodation.scss",
+      "PackagePath": "staticwebassets\\scss\\_accomodation.scss"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\scss\\_banner.scss",
+      "PackagePath": "staticwebassets\\scss\\_banner.scss"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\scss\\_blog.scss",
+      "PackagePath": "staticwebassets\\scss\\_blog.scss"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\scss\\_button.scss",
+      "PackagePath": "staticwebassets\\scss\\_button.scss"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\scss\\_contact.scss",
+      "PackagePath": "staticwebassets\\scss\\_contact.scss"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\scss\\_elements.scss",
+      "PackagePath": "staticwebassets\\scss\\_elements.scss"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\scss\\_footer.scss",
+      "PackagePath": "staticwebassets\\scss\\_footer.scss"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\scss\\_header.scss",
+      "PackagePath": "staticwebassets\\scss\\_header.scss"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\scss\\_predefine.scss",
+      "PackagePath": "staticwebassets\\scss\\_predefine.scss"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\scss\\_testimonial.scss",
+      "PackagePath": "staticwebassets\\scss\\_testimonial.scss"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\scss\\_variables.scss",
+      "PackagePath": "staticwebassets\\scss\\_variables.scss"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\scss\\style.scss",
+      "PackagePath": "staticwebassets\\scss\\style.scss"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\bootstrap-datepicker\\bootstrap-datetimepicker.min.css",
+      "PackagePath": "staticwebassets\\vendors\\bootstrap-datepicker\\bootstrap-datetimepicker.min.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\bootstrap-datepicker\\bootstrap-datetimepicker.min.js",
+      "PackagePath": "staticwebassets\\vendors\\bootstrap-datepicker\\bootstrap-datetimepicker.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\bootstrap-datepicker\\bootstrap-select.css",
+      "PackagePath": "staticwebassets\\vendors\\bootstrap-datepicker\\bootstrap-select.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\bootstrap-datepicker\\bootstrap-select.js",
+      "PackagePath": "staticwebassets\\vendors\\bootstrap-datepicker\\bootstrap-select.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\imagesloaded\\imagesloaded.pkgd.min.js",
+      "PackagePath": "staticwebassets\\vendors\\imagesloaded\\imagesloaded.pkgd.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\isotope\\isotope-min.js",
+      "PackagePath": "staticwebassets\\vendors\\isotope\\isotope-min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\lightbox\\simpleLightbox.css",
+      "PackagePath": "staticwebassets\\vendors\\lightbox\\simpleLightbox.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\lightbox\\simpleLightbox.min.js",
+      "PackagePath": "staticwebassets\\vendors\\lightbox\\simpleLightbox.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\linericon\\fonts\\Linearicons-Free.eot",
+      "PackagePath": "staticwebassets\\vendors\\linericon\\fonts\\Linearicons-Free.eot"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\linericon\\fonts\\Linearicons-Free.svg",
+      "PackagePath": "staticwebassets\\vendors\\linericon\\fonts\\Linearicons-Free.svg"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\linericon\\fonts\\Linearicons-Free.ttf",
+      "PackagePath": "staticwebassets\\vendors\\linericon\\fonts\\Linearicons-Free.ttf"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\linericon\\fonts\\Linearicons-Free.woff",
+      "PackagePath": "staticwebassets\\vendors\\linericon\\fonts\\Linearicons-Free.woff"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\linericon\\fonts\\Linearicons-Free.woff2",
+      "PackagePath": "staticwebassets\\vendors\\linericon\\fonts\\Linearicons-Free.woff2"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\linericon\\style.css",
+      "PackagePath": "staticwebassets\\vendors\\linericon\\style.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\nice-select\\css\\nice-select.css",
+      "PackagePath": "staticwebassets\\vendors\\nice-select\\css\\nice-select.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\nice-select\\css\\style.css",
+      "PackagePath": "staticwebassets\\vendors\\nice-select\\css\\style.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\nice-select\\js\\jquery.nice-select.js",
+      "PackagePath": "staticwebassets\\vendors\\nice-select\\js\\jquery.nice-select.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\nice-select\\js\\jquery.nice-select.min.js",
+      "PackagePath": "staticwebassets\\vendors\\nice-select\\js\\jquery.nice-select.min.js"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\owl-carousel\\assets\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\vendors\\owl-carousel\\assets\\ajax-loader.gif"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\owl-carousel\\assets\\animated.css",
+      "PackagePath": "staticwebassets\\vendors\\owl-carousel\\assets\\animated.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\owl-carousel\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\vendors\\owl-carousel\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\owl-carousel\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\vendors\\owl-carousel\\owl.carousel.min.css"
+    },
+    {
+      "Id": "E:\\nemooo\\work\\NileHotels\\NileHotels\\wwwroot\\vendors\\owl-carousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\vendors\\owl-carousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.NileHotels.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.build.NileHotels.props",
+      "PackagePath": "build\\NileHotels.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.NileHotels.props",
+      "PackagePath": "buildMultiTargeting\\NileHotels.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildTransitive.NileHotels.props",
+      "PackagePath": "buildTransitive\\NileHotels.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

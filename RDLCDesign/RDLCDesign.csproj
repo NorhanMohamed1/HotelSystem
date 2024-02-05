@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Assets.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Assets.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Clients.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Clients.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Contracts.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Contracts.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Hotel.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Hotel.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Purchases.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Purchases.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Rooms.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Rooms.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Services.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Services.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Assets.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Clients.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Clients.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Contracts.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Contracts.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Hotel.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Hotel.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Purchases.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Purchases.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Rooms.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Rooms.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Services.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Services.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

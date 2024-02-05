@@ -1,0 +1,68 @@
+﻿@model Room
+
+@{
+    Layout = "_LayoutHotel1";
+}
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+
+@*get data*@
+
+
+<div class="card-header pb-0">
+    <div class="row d-flex flex-row">
+        <div class="col-lg-12 col-md-8 col-8">
+
+            <h2> @localizer["Room Price Without Breakfast"]   </h2>
+            
+        </div>
+
+    </div>
+</div>
+
+<div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+        <a type="button" target="_blank" class="btn bg-gradient-primary text-white flipundo" asp-area="" asp-controller="Reports" asp-action="PrintRoomPriceWithoutBreakfast">@localizer["Print Report"]</a>
+        <div style="background-color:white">
+            <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+                <thead>
+                    <tr>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["RoomNo"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["FloorNo"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["NormalPrice"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["MinPrice"] </th>
+                        <th class="text-uppercase   font-weight-bolder "> @localizer["SingleBedNo"] </th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["DoubleBedNo"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["WcNo"]</th> 
+                    </tr>
+                </thead>
+                <tbody id="RoomPriceWithoutBreakfast">
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+ 
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}
+
+
+

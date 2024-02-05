@@ -1,0 +1,196 @@
+﻿@model VendorContact
+
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+
+
+<h2>@localizer["Client Contact"]</h2>
+
+<div class="col-md-4">
+    <div class="about_content ">
+        <h3 class="title_color">@localizer["NameAr"] </h3>
+        <input required id="vendorname" class="form-control" />
+        <br />
+        <a href="#" class="button_hover theme_btn_two" onclick="GetVendor()">@localizer["search"]</a>
+
+        <br />
+
+    </div>
+</div> 
+
+<div class="box-body" style=" color:white"> 
+   <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+        <thead>
+            <tr>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+
+                <th class="text-uppercase   font-weight-bolder ">@localizer["NameAr"]</th>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["NameEn"]</th>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["ContactType"]</th>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["Value"]</th> 
+                <th class="text-uppercase   font-weight-bolder ">@localizer["Decription"] </th>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["Edit"] </th>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["Delete"]</th>
+
+            </tr>
+        </thead>
+        <tbody id="tbody"> 
+
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div> 
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditModal" onclick="clearform()">
+    @localizer["Add New"]
+</button>
+
+<div class="modal" id="EditModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title"> @localizer["Add New"] /  @localizer["Edit"] </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    @using (Html.BeginForm("UpdateVendorContact", "Settings", FormMethod.Post))
+                    {
+                        <div class="modal-body">
+                            <input type="hidden" asp-for="Id" id="id" />
+                            <div class="form-group">
+                                <label class="control-label">@localizer["Client"]</label>
+                                <select asp-for="VendorId" id="vendorId" class="form-control"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">@localizer["ContactType"] </label>
+                                <select asp-for="ContactTypeId" id="contactTypeId" class="form-control"></select>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label asp-for="Value" class="control-label"></label>
+                                    <input asp-for="Value" required id="value" class="form-control" />
+                                </div>
+                                <div class="col">
+
+                                    <label asp-for="Description" class="control-label"></label>
+                                    <input asp-for="Description" required id="description" class="form-control" />
+
+                                </div>
+
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">@localizer["Submit"]</button>
+                            <button type="button" onclick="clearform()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+
+        $(document).ready(function () {
+            GetAllvendor();
+            GetAllContactType();
+        });
+
+        function GetAllvendor() {
+            var ss = "<option value=0>select Vendor</option>";
+            $.get("/Settings/GetAllvendor", function (data) {
+                $.each(data, function (i, j) {
+                    ss = ss + "<option value=" + j.id + ">" + j.nameAr + "</option>";
+                });
+                $("#vendorId").html(ss);
+
+            });
+        }
+
+        function GetVendor() {
+
+            var name = $("#vendorname").val();
+            if (name > "") {
+                var ss = "";
+                $.get("/Settings/GetAllVendorcontact/" + name, function (data) {
+                    $.each(data, function (i, j) {
+                        ss = ss + "<tr>";
+                        ss = ss + "<td class='align-middle text-center text-sm'>" + (i + 1) + "</td>";
+                        ss = ss + "<td class='align-middle text-center text-sm'>" + j.nameAr + "</td>";
+                        ss = ss + "<td class='align-middle text-center text-sm'>" + j.nameEn + "</td>";
+                        ss = ss + "<td class='align-middle text-center text-sm'>" + j.contacttypenam + "</td>";
+                        ss = ss + "<td class='align-middle text-center text-sm'>" + j.contactvalue + "</td>";
+                         ss = ss + "<td class='align-middle text-center text-sm'>" + j.contactdescription + "</td>";
+                        ss = ss + "<td class='align-middle text-center text-sm'><button   id='EditForm'    data-bs-toggle='modal' data-bs-target='#EditModal'    class='card-link btn text-center w-30 mx-2 mx-2 edit' onclick='EditForm(" + j.id + ")'><i class='fa-solid fa-pen' aria-hidden='true'></i></button></td>";
+                        ss = ss + "<td class='float-end me-4'><button   id='DeleteForm'  data-bs-toggle='modal' data-bs-target='#DeleteModal'  class='btn btn-link text-danger text-gradient px-3 mb-0' onclick='DeleteForm(" + j.id + ")'><i class='fa-regular fa-trash-can me-2' aria-hidden='true'></i></button></td>";
+                        ss = ss + "</tr>";
+                        $("#vendorId").val(j.id);
+                    });
+                    console.log(data);
+                    $("#tbody").html(ss);
+                });
+            } 
+        }
+
+        function GetAllContactType() {
+            var ss = "<option value=0>select contact Type</option>";
+            $.get("/Settings/GetAllContactType", function (data) {
+                $.each(data, function (i, j) {
+                    ss = ss + "<option value=" + j.id + ">" + j.nameAr + "</option>";
+                });
+                $("#contactTypeId").html(ss);
+
+            });
+        }
+        
+        
+        
+        function EditForm(id) {
+            $.ajax({
+                type: "POST",
+                url: "/Settings/GetVendorContact",
+                data: { id: id },
+                success: function (VendorContact) {
+                    console.log(VendorContact);
+                    $("#vendorId").val(VendorContact.vendorId);
+                    $("#value").val(VendorContact.value);
+                    $("#description").val(VendorContact.description);
+
+                    $("#contactTypeId").val(VendorContact.contactTypeId);
+
+                    $("#id").val(VendorContact.id)
+                }
+            })
+
+
+        }
+
+        function clearform() {
+            $("#id").val(0);
+            $("#value").val(0);
+            $("#description").val(0);
+
+            $("#vendorId").val(0);
+            $("#contactTypeId").val(0);
+        }
+    </script>
+}

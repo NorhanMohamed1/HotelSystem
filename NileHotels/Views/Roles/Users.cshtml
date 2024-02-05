@@ -1,0 +1,120 @@
+﻿@model UserRole
+
+@{
+    var userId = ViewBag.userId;
+    int i = 0;
+}
+
+
+
+<div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+        <div style="background-color:white">
+            <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+                <thead>
+                    <tr>
+                        <th class="text-uppercase   font-weight-bolder ">ID</th>
+                        <th class="text-uppercase   font-weight-bolder ">Name</th>
+                        <th>Roles </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in (List<UserRole>)ViewData["UsersWithRoles"])
+                    {
+                        <tr> 
+                            <td>@(++i)</td>
+                            <td>@user.UserName</td>
+                            <td class='align-middle text-center text-sm'>
+                                <button id='EditForm' data-bs-toggle='modal' data-bs-target='#EditModal' class='card-link btn text-center w-30 mx-2 mx-2 edit' onclick="GetUserRoles('@user.UserId')">
+                                    <i class='fa-solid fa-pen' aria-hidden='true'></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+ 
+ 
+<div class="modal" id="EditModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h2>Manage User Roles</h2>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h4>User's Role</h4>
+
+                    <div class="table-responsive">
+                        <table id="orderedProducts" class="table" style="color:black;width:142px;display:table;">
+                            <thead>
+                                <tr>
+                                    <th>*</th>
+                                    <th>Role Name</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyUserRoles">
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="box box-primary">
+                    @using (Html.BeginForm("AddRole", "Roles", FormMethod.Post))
+                    {
+                        <h4>Add Roles For User</h4>
+                        <div class="modal-body">
+                            <input type="hidden" id="userId" asp-for="UserId" />
+
+                            <select asp-for="SelectedRolesId" id="roles" class="form-control" multiple="multiple"></select>
+
+                            @*  @for (int i = 0; i < ((List<RoleViewModell>)ViewData["Roles"]).Count; i++)
+                            {
+                                var item = ((List<RoleViewModell>)ViewData["Roles"])[i];
+
+                                <div class="form-check m-1">
+                                    <input type="hidden" asp-for="@item.RoleId" />
+                                    <input type="hidden" asp-for="@item.RoleName" />
+                                    <input type="checkbox" asp-for="@item.IsSelected" />
+                                    <label class="form-check-label" asp-for="@item.IsSelected">
+                                        @item.RoleName
+                                    </label> 
+
+                                </div>
+                            }*@
+
+                           
+                           @* @foreach (var item in (List<RoleViewModell>)ViewData["Roles"])
+                            {
+                                <div class="form-check m-1">
+                                    <input type="hidden" asp-for="@item.RoleId" />
+                                    <input type="hidden" asp-for="@item.RoleName" />
+                                    <input asp-for="@item.IsSelected" />
+                                    <label class="form-check-label" asp-for="@item.IsSelected">
+                                        @item.RoleName
+                                    </label>
+
+                                </div> 
+                            }*@
+
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">submit</button>
+                            <button type="button" onclick="clearformUserRole()" class="btn btn-default pull-right" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        
+                    }
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>

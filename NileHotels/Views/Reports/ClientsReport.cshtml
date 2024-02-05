@@ -1,0 +1,168 @@
+﻿@model Customer
+
+@{
+    Layout = "_LayoutHotel1";
+}
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+
+
+
+<div class="card-header pb-0">
+    <div class="row d-flex flex-row">
+        <div class="col-lg-12 col-md-8 col-8">
+            <h2>@localizer["Clients Report"]</h2>
+             
+        </div>
+        <div class="about_content "> 
+            <div class="row">
+                <div class="form-group col">
+                    <h5 class="title_color">@localizer["IdValue"] </h5>
+                    <input required id="SearchCustomerid" class="form-control"  />
+                </div>
+                <div class="form-group col">
+                    <h5 class="title_color">@localizer["Id Type"] </h5>
+                    <select id="idTypeSearch" class="form-control" required></select>
+                </div>
+               
+            </div>
+             
+            <button class="btn bg-gradient-primary text-white flipundo" onclick="SearchCustomerReports()">@localizer["search"]</button>
+
+            <br />
+        </div>
+    </div>
+</div>
+
+
+@*search about customer *@
+<div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+        <div style="background-color:white;display:none" id="myDIVSearch">
+            <br />
+            <table id="example3" class="table table-bordered  align-items-center mb-0" style="color:black">
+                <thead>
+                    <tr>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+
+                        <th class="text-uppercase  text-s font-weight-bolder  ps-2">@localizer["Name"]</th>
+                        <th class="text-uppercase  text-s font-weight-bolder  ps-2">@localizer["IdValue"] </th>
+                        <th class="text-uppercase  text-s font-weight-bolder  ps-2">@localizer["Id Type"]</th>
+                        <th class="text-uppercase  text-s font-weight-bolder  ps-2">@localizer["Nationality"] </th>
+                        <th class="text-uppercase  text-s font-weight-bolder  ps-2">@localizer["Contacts"]</th>
+
+                    </tr>
+                </thead>
+                <tbody id="tbodysearchCustomerReport">
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+            <br />
+        </div>
+    </div>
+
+
+</div>
+
+
+
+@*show all customer in hotel*@
+<div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+        <div style="background-color:white">
+            <a type="button" target="_blank" class="btn bg-gradient-primary text-white flipundo" asp-area="" asp-controller="Reports" asp-action="PrintClientsReport">@localizer["Print Report"]</a>
+
+            <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+                <thead>
+                    <tr>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+
+                        <th class="text-uppercase  text-s font-weight-bolder  ps-2">@localizer["Name"]</th>
+                         <th class="text-uppercase  text-s font-weight-bolder  ps-2">@localizer["IdValue"] </th>
+                        <th class="text-uppercase  text-s font-weight-bolder  ps-2">@localizer["Id Type"]</th>
+                        <th class="text-uppercase  text-s font-weight-bolder  ps-2">@localizer["Nationality"] </th>
+                        <th class="text-uppercase  text-s font-weight-bolder  ps-2">@localizer["Contacts"]</th>
+
+                    </tr>
+                </thead>
+                <tbody id="tbodycustomerReports">
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*customer contact*@
+
+<div class="modal" id="contactModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title"> @localizer["Contacts"] </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    <div class="modal-body">
+                        <input type="hidden" id="customerid" />
+                        <input type="hidden" id="contactid" />
+                        
+                    </div>
+                    <div class="clearfix"></div>
+                </div> 
+                <div class="table-responsive" style="color:white">
+
+                    <table id="example2" class="table table-bordered  align-items-center mb-0" style="color:black">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+
+
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["ContactType"]</th>
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["Value"]</th>
+
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["Decription"] </th> 
+
+                            </tr>
+                        </thead>
+                        <tbody id="customercontactbody">
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                     <button type="button" onclick="clearCustomercontactmodal()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

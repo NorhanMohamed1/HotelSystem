@@ -1,0 +1,159 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>@ViewData["Title"] - NileHotels</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NileHotels.styles.css" asp-append-version="true" />
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/assets/img/favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/vendors/linericon/style.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="~/vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="~/vendors/owl-carousel/owl.carousel.min.css">
+
+
+
+    @if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        <link rel="stylesheet"
+              href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css"
+              integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe"
+              crossorigin="anonymous" />
+        //add your own files
+        <style>
+            table {
+                direction: rtl
+            }
+
+            * {
+                text-align: right
+            }
+        </style>
+    }
+    <!-- main css -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/1e6c57a711.js" crossorigin="anonymous"></script>
+    <!-- CSS Files -->
+    <link id="pagestyle" href="~/assets/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body >
+    <div class="starting-screen"></div>
+    <div class="container position-sticky z-index-sticky top-0">
+        <div class="row">
+            <div class="col-12">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg blur blur-rounded top-0 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+                    <div class="container-fluid pe-0">
+                        <a class="btn btn-sm btn-round mb-0 me-1 bg-gradient-primary" asp-area="" asp-controller="Home" asp-action="Index">
+                            <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                            NileHotel Home
+                        </a>
+
+                        <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon mt-2">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navigation">
+                            <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
+                                <li lass="nav-item d-flex align-items-center mx-2" style="padding:8px">
+                                        <partial name="_SelectLanguagePartial" />
+                                </li>
+
+                                <li class="nav-item" style="padding-left:8px">
+                                    <partial name="_LoginPartial" />
+                                </li>
+
+                               
+
+                                @*<li class="nav-item d-flex align-items-center">
+                                <a class="btn btn-round btn-sm mb-0 btn-outline-primary me-2" target="_blank" href="#">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                <a href="#" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-primary">Modules</a>
+                                </li>*@
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
+            </div>
+        </div>
+    </div>
+
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+       
+        <section>
+            <div class="page-header min-vh-75">
+                <div class="container">
+                    <div class="row">
+                       
+            @RenderBody()
+                         
+                    </div>
+                </div>
+            </div>
+                        
+        </section>
+    </main>
+
+     
+    @*<footer class="border-top footer text-muted">
+    <div class="container">
+    &copy; 2023 - NileHotels - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </footer>*@
+
+    <script src="~/assets/js/core/popper.min.js"></script>
+    <script src="~/assets/js/core/bootstrap.min.js"></script>
+    <script src="~/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="~/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="~/assets/js/plugins/chartjs.min.js"></script>
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+   
+    <script src="~/js/site.js" asp-append-version="true"></script>
+     
+   
+      <script src="~/js/nilehotels.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    
+
+
+
+
+
+</body>
+</html>

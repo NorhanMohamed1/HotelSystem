@@ -1,0 +1,167 @@
+﻿@model ContractRecepitVoucher
+
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+ 
+@{
+    var contract = (Contracts)ViewData["Contract"];
+}
+
+@*Service *@
+<div class="row">
+    
+        <div class="about_content ">
+        <h3 class="title_color">New Recepit Voucher</h3>
+
+            <div>
+            @using (Html.BeginForm("UpdateContractRecepitVoucher", "Vouchers", FormMethod.Post))
+                {
+
+
+                <input type="hidden" asp-for="Id" id="id" />
+                <input type="hidden" id="hotelId" value="@contract.HotelId" asp-for="HotelId" />
+                <input type="hidden" asp-for="ContractId" id="contractId" value="@contract.Id" />
+
+
+                <div class="row">
+                    <div class="col">
+                        <label for="Hotelname">Hotel Name </label>
+                        <input class="form-control text-box single-line valid" disabled="disabled" value="@contract.Hotel.NameAr" id="Hotelname" type="text" aria-required="true">
+                    </div>
+                    <div class="col">
+                        <label for="Hotelname">Room number </label>
+                        <input class="form-control text-box single-line valid" disabled="disabled" value="@contract.Room.RoomNo" id="Hotelname" type="text" aria-required="true">
+                    </div>
+                    <div class="col">
+                        <label for="Hotelname">Contract Number </label>
+                        <input class="form-control text-box single-line valid" disabled="disabled" value="@contract.Id" id="Hotelname" type="text" aria-required="true">
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <h4>invoice info.</h4>
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="PaymentDate" class="control-label"></label>
+                            <input asp-for="PaymentDate" required id="date" class="form-control" value="@DateTime.Now" type="datetime" />
+                        </div>
+
+                        <div class="col">
+                            <label asp-for="Amount" class="control-label"></label>
+                            <input asp-for="Amount" required id="amount" class="form-control"   />
+                        </div>
+
+                        <div class="col"> 
+
+                            <input asp-for="Isprocess" required id="isprocess" class="form-control" type="hidden" value="true" />
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-group col">
+                        <label>@localizer["naturel of Payment"]</label>
+                        <select asp-for="PaymentNature" id="naturelofAsset" class="form-control" disabled="disabled">
+                            <option value="Product">@localizer["Product"]</option>
+                            <option value="Contract" selected>@localizer["Contract"]</option>
+                        </select>
+                    </div>
+                    <div class="form-group col">
+                        <label class="control-label">@localizer["Payment Method"] </label>
+                        <select asp-for="PaymentTypeId" id="paymentTypeId" class="form-control"></select>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    
+                    <div class="form-group col">
+                        <label class="control-label">@localizer["Decription"] </label>
+                        <input asp-for="Description" required id="description" class="form-control" />
+                    </div>
+
+                </div>
+               
+                <div class="clearfix"></div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">@localizer["Submit"]</button>
+                </div>
+
+                }
+            </div>
+
+            <div>
+            </div>
+
+        </div>
+  
+
+   
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            GetAllPaymentTypes();
+             
+        });
+
+
+       
+
+
+        function GetAllPaymentTypes() {
+            var ss = "<option value=0> Payment Method </option>";
+            $.get("/Settings/GetAllPaymentTypes", function (data) {
+                $.each(data, function (i, j) {
+                    ss = ss + "<option value=" + j.id + ">" + j.nameAr + "</option>";
+                });
+                $("#paymentTypeId").html(ss);
+                
+            });
+        }
+
+
+    </script>
+}
+
+
+

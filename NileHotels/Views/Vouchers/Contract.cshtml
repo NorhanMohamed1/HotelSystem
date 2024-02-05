@@ -1,0 +1,261 @@
+﻿@model Contracts
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@inject IHtmlLocalizer<NileHotels.Resources.Resource> loc
+
+@{
+    var room = (Room)ViewData["Room"];
+}
+
+@*<button onclick="myFunction()">Try it</button>*@
+@*add new contract*@
+<div class="row">
+    <div class="col-md-8">
+        <div class="about_content ">
+            <h3 class="title_color">@loc["New Contract"]</h3>
+
+            <div>
+                @using (Html.BeginForm("UpdateContract", "Vouchers", FormMethod.Post))
+                {
+
+                    <input type="hidden" asp-for="Id" id="id" />
+                    <input type="hidden" asp-for="RoomId" id="roomId" value="@room.Id" />
+                    <input type="hidden" asp-for="CustomerId" id="customerIdincontract" />
+                    <input type="hidden" asp-for="Status" id="status" value="1" />
+
+
+                    <input type="hidden" id="hotelId" value="@room.HotelId" asp-for="HotelId" />
+
+                    <div class="row">
+                        <div class="form-group col">
+                            <label for="Hotelname">@loc["Hotel"] </label>
+                            <input class="form-control text-box single-line valid" value="@room.Hotel.NameAr" id="Hotelname" type="text" disabled="disabled" aria-required="true">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <h4>@loc["Room info"]</h4>
+                        
+                        <div class="form-group col">
+                            <label for="Rent">@loc["Price"]</label>
+                            <input class="form-control text-box single-line valid" value="@room.NormalPrice" id="Rent" type="text" disabled="disabled" aria-required="true">
+
+                        </div>
+                       
+                        <div class="form-group col">
+                            <label>@loc["RoomStatus"] </label>
+                            @{
+                                if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+                                {
+                                    <input class="form-control text-box single-line valid" value="@room.RoomType.NameAr" disabled="disabled" type="text" aria-required="true">
+                                }
+                                else
+                                {
+                                    <input class="form-control text-box single-line valid" value="@room.RoomType.NameEn" disabled="disabled" type="text" aria-required="true">
+                                }
+                            }
+                        </div>
+                        <div class="form-group col">
+                            <label for="RoomNum">@loc["RoomNo"] </label>
+                            <input class="form-control text-box single-line valid" disabled="disabled" value="@room.RoomNo" id="RoomNum" type="text" aria-required="true">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <h4>@loc["Rent info"]</h4>
+                        <div class="col">
+                            @Html.CheckBoxFor(m => m.IsHospitalityContract , new { id="IsHospitalityContract"})
+                            <label for="IsHospitalityContract">@loc["Hospitality Contract ?"]</label>
+                        </div>
+                        
+                    </div>
+
+                    <div class="row">
+                         
+                        <div class="form-group col">
+                            <label class="control-label">@loc["PurposeVisit"]</label>
+                            <select required asp-for="PurposeVisitId" id="purposeVisitId" class="form-control"></select>
+                        </div>
+                    </div>
+                     
+
+
+                    <div class="row">
+                        <div class="form-group col">
+                            <label asp-for="CheckInTime" class="control-label">@loc["CheckInTime"]</label>
+                            <input asp-for="CheckInTime" id="checkInTime" class="form-control" value="" min="1987-01-01" max="3030-12-31" />
+                        </div>
+
+                        <div class="col">
+                            <label asp-for="CheckOut" class="control-label">@loc["CheckOut"]</label>
+                            <input asp-for="CheckOut" required id="checkOut" class="form-control" value="" min="1987-01-01" max="3030-12-31" onChange="calcContractDuration()" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="UnitPrice" class="control-label">@loc["price for one day"]</label>
+                            <input asp-for="UnitPrice" value="@room.NormalPrice" required id="unitPriceConttract" class="form-control" />
+                        </div>
+                        <div class="col">
+                            <label asp-for="CountofPerson" class="control-label">@loc["CountofPerson"]</label>
+                            <input asp-for="CountofPerson" required id="countofPerson" class="form-control" />
+                        </div>
+                        <div class="col">
+                            <label asp-for="Duration" class="control-label">@loc["Duration"]</label>
+                            <input   asp-for="Duration" required id="contractDuration"   class="form-control" />
+                        </div>
+
+
+                    </div>
+                    <div class="row"> 
+                        <div class="col">
+                            <label asp-for="NetPrice" class="control-label">@loc["Total Contract Value"]</label>
+                            <input asp-for="NetPrice" required id="netPrice" class="form-control" />
+                        </div>
+                         <div class="col">
+                            <label asp-for="TotalVat" class="control-label">@loc["Contract Taxes"]</label>
+                            <input asp-for="TotalVat" required id="totalVat" class="form-control" />
+                        </div>
+                        <div class="form-group col">
+                            <label asp-for="TotalPrice" class="control-label">@loc["Total value with taxes"]</label>
+                            <input asp-for="TotalPrice" required id="contractTotalPrice" class="form-control"  />
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <button type="submit" class="btn btn-primary">@loc["Submit"]</button>
+                    </div>
+
+
+                }
+            </div>
+        </div>
+    </div>
+
+    @*search about customer *@
+    <div class="col-md-4">
+        <div class="about_content ">
+            <br /> <br />
+ 
+            <div class="row">
+               
+                <div class="form-group col">
+                    <h5 class="title_color">@loc["Id Type"] </h5>
+                    <select id="idTypeSearch" class="form-control" required></select>
+                </div>
+                <div class="form-group col">
+                    <h5 class="title_color">@loc["IdValue"] </h5>
+                    <input required id="customerid" class="form-control" style="text-align:right" />
+                </div>
+            </div>
+           
+            <br />
+            <button class="btn bg-gradient-primary text-white flipundo"  onclick="Getcustomer()">@loc["search"]</button>
+           
+            <br />
+            <div id="tbodycustomercontract"></div>
+        </div>
+    </div>
+</div>
+
+@*add new customer *@
+<div class="modal" id="EditModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title"> @loc["Add New"] </h3>
+            </div>
+
+            <div class="modal-body">
+                <div class="box box-primary">
+                    <div class="modal-body">
+                        <input type="hidden" id="newcustomerid" />
+                        <input type="hidden" id="customerhotelId" />
+                        <div class="form-group">
+                            <label class="control-label">@loc["Hotel"]</label>
+                            <select id="Shotelid" class="form-control" disabled="disabled"></select>
+                        </div>
+                       
+                        <div class="row">
+                            <div class="col">
+                                <label class="control-label"> @loc["firstName"]</label>
+                                <input required id="firstName" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label class="control-label">@loc["lastName"]</label>
+                                <input required id="lastName" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="control-label">@loc["Country"]</label>
+                                <select id="countryId" class="form-control"></select>
+                            </div>
+                            <div class="form-group col">
+                                <label class="control-label">@loc["Id Type"]</label>
+                                <select id="idTypeId" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label class="control-label">@loc["IdValue"]</label>
+                            <input required id="idValue" class="form-control" />
+                        </div>
+                        <div class="row">
+                            <div class="form-group col" >
+                                <input type="checkbox" required id="isCompony" />
+                                <label class="control-label">@loc["IsCompony"]</label>
+
+                            </div> 
+                             </div>
+                        <div class="row"> 
+                            <div class="form-group col">
+                                <input type="checkbox" required id="isShare" />
+                                <label class="control-label">@loc["IsShare"]</label>
+                            </div>
+
+
+                        </div>
+                       
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="addnewcustomer">@loc["Submit"]</button>
+                        <button type="button" onclick="clearform()" class="btn btn-default pull-right" data-bs-dismiss="modal">@loc["Close"]</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script> 
+
+        $("#customerIdincontract").val(customerIdincontract);
+        function myFunction() { 
+            alert($("#customerIdincontract").val());
+        }
+         
+         
+        function clearContractform() {
+            $("#newcustomerid").val(0);
+            $("#firstName").val("");
+            $("#lastName").val("");
+            $("#idValue").val("");
+            $("#customerhotelId").val("");
+            $("#countryId").val("");
+            $("#idTypeId").val("");
+        }
+
+
+    </script>
+}

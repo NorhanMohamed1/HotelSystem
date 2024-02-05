@@ -1,0 +1,342 @@
+﻿@model Room
+
+@{
+    Layout = "_LayoutHotel1";
+}
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IOptions<RequestLocalizationOptions> locOptions
+@inject IHtmlLocalizer<Resource> localizer
+
+@using Microsoft.AspNetCore.Http
+
+@*get data*@
+
+
+
+<div class="card-header pb-0  ">
+    <div class="row d-flex flex-row">
+        <div class="col-lg-12 col-md-8 col-8">
+            <h2 class="text-dark m-0 col-8" >  @localizer["Roomscheme"]</h2>
+        </div>
+ 
+    </div>
+</div> 
+
+<br />
+<br />
+@*<div class="card w-90 rounded-3 mb-5 py-4 d-flex flex-row justify-content-center align-items-center">
+    <h5 class="text-dark m-0 col-8">All rooms</h5>
+    class="row d-flex flex-row"
+</div>*@
+<div class=" bg-gray-100 rounded-3 ">
+    <div class="row my-5 d-flex flex-row justify-content-center " id="FlatsContainer">
+    </div>
+</div>
+
+@*// Edit room*@
+<div class="modal" id="EditModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title">  @localizer["Edit"] </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    @using (Html.BeginForm("UpdateRoomscheme", "Settings", FormMethod.Post))
+                    {
+                        <div class="modal-body">
+                            <input type="hidden" asp-for="Id" id="id" />
+                            <input type="hidden" asp-for="HotelId" id="hotel" />
+                            <div class="form-group">
+                                <label class="control-label">@localizer["Hotel"]</label>
+                                <select id="Shotelid" class="form-control" disabled="disabled"></select>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label asp-for="RoomNo" class="control-label"></label>
+                                    <input asp-for="RoomNo" required id="roomNo" class="form-control" disabled="disabled" />
+                                </div>
+                                <div class="col">
+                                    <label asp-for="FloorNo" class="control-label"></label>
+                                    <input asp-for="FloorNo" required id="floorNo" class="form-control" disabled="disabled" />
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label class="control-label">@localizer["RoomType"]</label>
+                                    <select asp-for="RoomTypeId" id="roomTypeId" class="form-control" disabled="disabled"></select>
+                                </div>
+                                <div class="form-group col">
+                                    <label class="control-label">@localizer["RoomStatus"]</label>
+                                    <select asp-for="RoomStatusId" id="roomStatusId" class="form-control"></select>
+                                </div>
+                            </div>
+                             
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">@localizer["Submit"]</button>
+                            <button type="button" onclick="clearformRoomscheme()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" id="DeleteModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title">@localizer["Delete"] </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    @using (Html.BeginForm("DeleteRoom", "Settings", FormMethod.Post))
+                    {
+                        <div class="modal-body">
+                            <input type="hidden" asp-for="Id" id="idd" />
+                            <div class="row">
+                                <div class="col">
+                                    <label asp-for="RoomNo" class="control-label"></label>
+                                    <input asp-for="RoomNo" required id="roomNod" class="form-control" />
+                                </div>
+                                <div class="col">
+                                    <label asp-for="FloorNo" class="control-label"></label>
+                                    <input asp-for="FloorNo" required id="floorNod" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label class="control-label">@localizer["RoomType"]</label>
+                                    <select asp-for="RoomTypeId" id="roomTypeIdd" class="form-control"></select>
+                                </div>
+                                <div class="form-group col">
+                                    <label class="control-label">@localizer["RoomStatus"] </label>
+                                    <select asp-for="RoomStatusId" id="roomStatusIdd" class="form-control"></select>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label asp-for="NormalPrice" class="control-label"></label>
+                                    <input asp-for="NormalPrice" required id="normalPriced" class="form-control" />
+                                </div>
+                                <div class="col">
+                                    <label asp-for="MinPrice" class="control-label"></label>
+                                    <input asp-for="MinPrice" required id="minPriced" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">@localizer["Delete"]</button>
+                            <button type="button" onclick="clearformRoomscheme()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" id="RecepitVoucherModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title">  @localizer["New Receipt Voucher"]  </h3>
+            </div>
+            <div class="modal-body">
+                <h4>  @localizer["invoice info."]</h4>
+                <input type="hidden" id="receptid" />
+
+                <input type="hidden" id="isprocess" class="form-control" value="true" />
+
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="control-label">@localizer["ContractNo"] </label>
+                        <input id="receptcontractid" class="form-control" disabled="disabled" />
+                    </div>
+                    <div class="form-group col">
+                        <label>@localizer["naturel of Payment"]</label>
+                        <select id="paymentNature" class="form-control" disabled="disabled">
+                            <option value="Product">@localizer["Product"]</option>
+                            <option value="Contract" selected>@localizer["Contract"]</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="form-group col">
+                        <label class="control-label">@localizer["Payment Method"] </label>
+                        <select id="paymentTypeId" class="form-control"></select>
+                    </div>
+
+                    <div class="form-group col">
+                        <label class="control-label">@localizer["Currencies"] </label>
+                        <select id="currencyIdRecepit" class="form-control"></select>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="control-label"> @localizer["Reciept Date"]</label>
+                        <input required id="paymentDate" class="form-control" value="@DateTime.Now" type="datetime" />
+                    </div>
+                    <div class="col">
+                        <label class="control-label"> @localizer["Total value with taxes"]</label>
+                        <input required id="recepttotalPrice" class="form-control" />
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="control-label">@localizer["Amount"]</label>
+                        <input required id="amount" class="form-control" />
+                    </div>
+                    <div class="col">
+                        <label class="control-label">@localizer["TotalRemainingValue"]</label>
+                        <input required id="totalRemainingValue" class="form-control" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+
+                    <div class="form-group col">
+                        <label class="control-label">@localizer["Decription"] </label>
+                        <input required id="description" class="form-control" />
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="saveRecepitVoucher">@localizer["Submit"]</button>
+                    <button type="button" onclick="clearRecepitVoucherModal()" class="btn btn-default pull-right" data-bs-dismiss="modal"> @localizer["Close"]</button>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+ 
+
+@*// Edit contract Modal *@
+<div class="modal" id="EditcontractModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title">@localizer["Add New"] /  @localizer["Edit"] </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                     
+                        <input type="hidden"   id="contractid" /> 
+                        <input type="hidden"   id="hotelId" class="form-control" />
+
+                    <div class="row">
+                        <h4>@localizer["Room info"]</h4>
+
+                        <div class="form-group col">
+                            <label class="control-label">@localizer["RoomNo"]</label>
+                            <select id="roomNum" onchange="changeRoom()" class="form-control"></select>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Rent">@localizer["Price"]</label>
+                            <input class="form-control text-box single-line valid" id="Rent" type="text" aria-required="true">
+                        </div>
+
+                    </div>
+
+                        <div class="row">
+                            <h4>@localizer["Rent info"]</h4>
+                            <div class="form-group col">
+                                <label class="control-label">@localizer["PurposeVisit"]</label>
+                                <select required   id="purposeVisitId" class="form-control"></select>
+                            </div> 
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col">
+                                <label  class="control-label">@localizer["CheckInTime"]</label>
+                                <input type="datetime-local"  id="checkInTime" class="form-control" value="" min="2023-10-01" max="3030-12-31" />
+                            </div>
+
+                            <div class="col">
+                                <label  class="control-label">@localizer["CheckOut"]</label>
+                            <input type="datetime-local" required id="checkOut" class="form-control" value="" min="2023-01-02" max="3030-12-31" onChange="calctotalDaysNum()" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label   class="control-label">@localizer["price for one day"]</label>
+                                <input   required id="unitPrice" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label   class="control-label">@localizer["CountofPerson"]</label>
+                                <input   required id="countofPerson" class="form-control" />
+                            </div> 
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label   class="control-label">@localizer["Duration"]</label>
+                                <input   required id="duration" value="0" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label class="control-label">Contract Taxes</label>
+                                <input   required id="totalVat" class="form-control" />
+                            </div> 
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label   class="control-label">Total Contract Value</label>
+                                <input   required id="netPrice" class="form-control" />
+                            </div>
+                            <div class="form-group col">
+                                <label  class="control-label">Total value with taxes</label>
+                                <input   required id="totalPrice" class="form-control" />
+                            </div> 
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="modal-footer">
+                            <button type="submit" id="updatecontract" class="btn btn-primary">@localizer["Submit"]</button>
+                            <button type="button" onclick="clearformAllContracts()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                        </div>
+
+
+                   
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+     
+
+}

@@ -1,0 +1,17 @@
+E:\nemooo\work\NileHotels\RDLCDesign\bin\Debug\net7.0-windows\RDLCDesign.exe
+E:\nemooo\work\NileHotels\RDLCDesign\bin\Debug\net7.0-windows\RDLCDesign.deps.json
+E:\nemooo\work\NileHotels\RDLCDesign\bin\Debug\net7.0-windows\RDLCDesign.runtimeconfig.json
+E:\nemooo\work\NileHotels\RDLCDesign\bin\Debug\net7.0-windows\RDLCDesign.dll
+E:\nemooo\work\NileHotels\RDLCDesign\bin\Debug\net7.0-windows\RDLCDesign.pdb
+E:\nemooo\work\NileHotels\RDLCDesign\obj\Debug\net7.0-windows\RDLCDesign.csproj.AssemblyReference.cache
+E:\nemooo\work\NileHotels\RDLCDesign\obj\Debug\net7.0-windows\RDLCDesign.Form1.resources
+E:\nemooo\work\NileHotels\RDLCDesign\obj\Debug\net7.0-windows\RDLCDesign.csproj.GenerateResource.cache
+E:\nemooo\work\NileHotels\RDLCDesign\obj\Debug\net7.0-windows\RDLCDesign.GeneratedMSBuildEditorConfig.editorconfig
+E:\nemooo\work\NileHotels\RDLCDesign\obj\Debug\net7.0-windows\RDLCDesign.AssemblyInfoInputs.cache
+E:\nemooo\work\NileHotels\RDLCDesign\obj\Debug\net7.0-windows\RDLCDesign.AssemblyInfo.cs
+E:\nemooo\work\NileHotels\RDLCDesign\obj\Debug\net7.0-windows\RDLCDesign.csproj.CoreCompileInputs.cache
+E:\nemooo\work\NileHotels\RDLCDesign\obj\Debug\net7.0-windows\RDLCDesign.dll
+E:\nemooo\work\NileHotels\RDLCDesign\obj\Debug\net7.0-windows\refint\RDLCDesign.dll
+E:\nemooo\work\NileHotels\RDLCDesign\obj\Debug\net7.0-windows\RDLCDesign.pdb
+E:\nemooo\work\NileHotels\RDLCDesign\obj\Debug\net7.0-windows\RDLCDesign.genruntimeconfig.cache
+E:\nemooo\work\NileHotels\RDLCDesign\obj\Debug\net7.0-windows\ref\RDLCDesign.dll

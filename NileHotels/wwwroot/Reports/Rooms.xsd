@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Rooms" targetNamespace="http://tempuri.org/Rooms.xsd" xmlns:mstns="http://tempuri.org/Rooms.xsd" xmlns="http://tempuri.org/Rooms.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Rooms" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="Rooms" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Rooms">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rooms" msprop:Generator_RowClassName="RoomsRow" msprop:Generator_RowEvHandlerName="RoomsRowChangeEventHandler" msprop:Generator_RowDeletedName="RoomsRowDeleted" msprop:Generator_RowDeletingName="RoomsRowDeleting" msprop:Generator_RowEvArgName="RoomsRowChangeEvent" msprop:Generator_TablePropName="_Rooms" msprop:Generator_RowChangedName="RoomsRowChanged" msprop:Generator_UserTableName="Rooms" msprop:Generator_RowChangingName="RoomsRowChanging" msprop:Generator_TableClassName="RoomsDataTable" msprop:Generator_TableVarName="tableRooms">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" minOccurs="0" />
+              <xs:element name="RoomNo" msprop:Generator_UserColumnName="RoomNo" msprop:Generator_ColumnPropNameInTable="RoomNoColumn" msprop:Generator_ColumnPropNameInRow="RoomNo" msprop:Generator_ColumnVarNameInTable="columnRoomNo" type="xs:int" minOccurs="0" />
+              <xs:element name="FloorNo" msprop:Generator_UserColumnName="FloorNo" msprop:Generator_ColumnPropNameInTable="FloorNoColumn" msprop:Generator_ColumnPropNameInRow="FloorNo" msprop:Generator_ColumnVarNameInTable="columnFloorNo" type="xs:int" minOccurs="0" />
+              <xs:element name="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnVarNameInTable="columnstatus" type="xs:string" minOccurs="0" />
+              <xs:element name="typename" msprop:Generator_UserColumnName="typename" msprop:Generator_ColumnPropNameInTable="typenameColumn" msprop:Generator_ColumnPropNameInRow="typename" msprop:Generator_ColumnVarNameInTable="columntypename" type="xs:string" minOccurs="0" />
+              <xs:element name="NormalPrice" msprop:Generator_UserColumnName="NormalPrice" msprop:Generator_ColumnPropNameInTable="NormalPriceColumn" msprop:Generator_ColumnPropNameInRow="NormalPrice" msprop:Generator_ColumnVarNameInTable="columnNormalPrice" type="xs:int" minOccurs="0" />
+              <xs:element name="SingleBedNo" msprop:Generator_UserColumnName="SingleBedNo" msprop:Generator_ColumnPropNameInTable="SingleBedNoColumn" msprop:Generator_ColumnPropNameInRow="SingleBedNo" msprop:Generator_ColumnVarNameInTable="columnSingleBedNo" type="xs:int" minOccurs="0" />
+              <xs:element name="DoubleBedNo" msprop:Generator_UserColumnName="DoubleBedNo" msprop:Generator_ColumnPropNameInTable="DoubleBedNoColumn" msprop:Generator_ColumnPropNameInRow="DoubleBedNo" msprop:Generator_ColumnVarNameInTable="columnDoubleBedNo" type="xs:int" minOccurs="0" />
+              <xs:element name="contractnumber" msprop:Generator_UserColumnName="contractnumber" msprop:Generator_ColumnPropNameInTable="contractnumberColumn" msprop:Generator_ColumnPropNameInRow="contractnumber" msprop:Generator_ColumnVarNameInTable="columncontractnumber" type="xs:int" minOccurs="0" />
+              <xs:element name="totalPrice" msprop:Generator_UserColumnName="totalPrice" msprop:Generator_ColumnPropNameInTable="totalPriceColumn" msprop:Generator_ColumnPropNameInRow="totalPrice" msprop:Generator_ColumnVarNameInTable="columntotalPrice" type="xs:int" minOccurs="0" />
+              <xs:element name="MinPrice" msprop:Generator_ColumnPropNameInRow="MinPrice" msprop:Generator_ColumnPropNameInTable="MinPriceColumn" msprop:Generator_ColumnVarNameInTable="columnMinPrice" msprop:Generator_UserColumnName="MinPrice" type="xs:int" minOccurs="0" />
+              <xs:element name="PriceWithBreakfast" msprop:Generator_ColumnPropNameInRow="PriceWithBreakfast" msprop:Generator_ColumnPropNameInTable="PriceWithBreakfastColumn" msprop:Generator_ColumnVarNameInTable="columnPriceWithBreakfast" msprop:Generator_UserColumnName="PriceWithBreakfast" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

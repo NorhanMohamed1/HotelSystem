@@ -1,0 +1,198 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NileHotels</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NileHotels.styles.css" asp-append-version="true" />
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/vendors/linericon/style.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="~/vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="~/vendors/owl-carousel/owl.carousel.min.css">
+
+
+    
+    @if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        <link rel="stylesheet"
+              href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css"
+              integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe"
+              crossorigin="anonymous" />
+        //add your own files
+        <style>
+            table {
+                direction: rtl
+            }
+
+            * {
+                text-align: right
+            }
+        </style>
+    }
+    <!-- main css -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">NileHotels</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <partial name="_LoginPartial" />
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    @*<ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>*@
+                  
+                    <ul class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> @localizer["Home"]</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="\Settings\Hotel">@localizer["Hotel"]</a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\HotelContact"> @localizer["Hotel Contact"] </a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@localizer["Room"]</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="\Settings\Room">@localizer["Room"] </a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\RoomAsset">@localizer["Room furniture"]  </a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\Roomscheme">@localizer["Roomscheme"]  </a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\RoomType">@localizer["RoomType"]</a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\RoomStatus">@localizer["RoomStatus"]</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@localizer["Reservation"]</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="\Vouchers\AllContracts">@localizer["Conttracts"] </a></li>
+                              
+                            </ul>
+                        </li>
+
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@localizer["Clients"]</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="\Settings\Vendor">@localizer["Vendors"]</a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\VendorContact">@localizer["Vendor Contact"]  </a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\Customer">@localizer["Clients"]</a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\CustomerContact"> @localizer["Client Contact"] </a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\Employee">@localizer["Employees"]  </a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@localizer["Furniture and stores"]</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="\Settings\Store">@localizer["Stores"]</a></li>
+                                
+                                <li class="nav-item"><a class="nav-link" href="\Settings\StoreResponsable">@localizer["Store Responsables"] </a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\StoreAsset">@localizer["Store content"] </a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\Asset">@localizer["Asset"]</a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\AssetType">@localizer["Asset Type"]</a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\AssetStatus">@localizer["Asset Status"]</a></li>
+                                
+
+                            </ul>
+                        </li>
+                        
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@localizer["Settings"]</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="\Settings\Currencies">@localizer["Currencies"]</a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\IdType"> @localizer["Id Type"] </a></li>
+                            
+                                <li class="nav-item"><a class="nav-link" href="\Settings\Country">@localizer["countries"]</a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\City"> @localizer["cities"] </a></li>
+
+                                <li class="nav-item"><a class="nav-link" href="\Settings\UnitType">@localizer["UnitType"]</a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\TaxType">@localizer["TaxType"] </a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\ContactType">@localizer["Contact Type"]</a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\PaymentType">@localizer["PaymentType"]</a></li>
+                                <li class="nav-item"><a class="nav-link" href="\Settings\PurposeVisit">@localizer["PurposeVisit"]</a></li>
+                                @*<li class="nav-item"><a class="nav-link" href="\Settings\RoomStatus">حالة الغرف</a></li>*@
+                                
+                            </ul>
+                        </li>
+
+                      
+
+                      @*  <li class="nav-item"><a class="nav-link" href="#">الحسابات</a></li>*@
+                       
+                        
+                    </ul>
+
+                </div>
+            </div>
+            <div>
+                <partial name="_SelectLanguagePartial" />
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - NileHotels - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>*@ 
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+    <script src="~/js/nilehotels.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+
+    
+
+
+
+</body>
+</html>

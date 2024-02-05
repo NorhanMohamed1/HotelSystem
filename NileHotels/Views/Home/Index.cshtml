@@ -1,0 +1,88 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@using Microsoft.Extensions.Localization;
+@using NileHotels.Resources
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+
+@inject IOptions<RequestLocalizationOptions> locOptions
+@inject IStringLocalizer<Resource> localizer
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+}
+@{
+    Layout = "_LayoutViewStart";
+}
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*
+<div class="text-center">
+    <h1 class="display-4"></h1> 
+</div>
+*@
+ 
+
+
+
+
+<div class="col-10  col-lg-6 col-sm-8 col-md-6 d-flex flex-column mx-auto " style="left: 10vw;top: 1vh;">
+    <div class="card card-plain mt-8">
+        
+        <div class="card-header pb-0 text-left bg-transparent">
+            <h1 class="font-weight-bolder text-info text-gradient">@localizer["Welcome"]</h1>
+            <hr />
+        </div>
+        <div class="card-body">
+            <form >
+                <div class="text-danger" role="alert"> 
+                </div>
+                <div class="form-floating mb-3">
+
+                    @*<h2> @localizer["log in Hotel"] </h2>*@
+                    <select id="loginhotelid" class="btn btn-outline-primary btn-sm mb-0 me-3 dropdown-toggle" style="width:250px;display:inline-block;font-size:1.2vw;"></select>
+
+
+                </div>
+                <div class="form-floating mb-3">  </div>
+                <div class="form-floating mb-3">  </div>
+                </form>
+        </div>
+    </div>
+</div>
+ 
+
+
+
+<div class="col-md-6" style="height:615px">
+    <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+        <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n7" >
+
+            <img src="~/assets/img/curved-images/curved19.png" />
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-md-offset-2">
+    <section>
+        
+    </section>
+</div>
+
+ 
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    } 
+
+    
+ }
+
+
+
+ 

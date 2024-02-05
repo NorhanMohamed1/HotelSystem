@@ -1,0 +1,119 @@
+﻿@model ContractInvoice
+
+@{
+    var contract = (Contracts)ViewData["Contract"];
+}
+
+
+@*Service *@
+<div class="row">
+    <div class="col-md-6">
+        <div class="about_content ">
+            <h3 class="title_color">invoice</h3>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="Hotelname">Hotel Name </label>
+                    <input class="form-control text-box single-line valid" value="@contract.Hotel.NameAr" id="Hotelname" type="text" aria-required="true">
+                </div>
+            </div>
+            <div class="about_content ">
+                <div class="row">
+
+                    <div class="form-group col">
+                        <label for="Hotelname">Room number </label>
+                        <input class="form-control text-box single-line valid" value="@contract.Room.RoomNo" id="Hotelname" type="text" aria-required="true">
+                    </div>
+                    <div class="form-group col">
+                        <label for="Hotelname"> Client </label>
+                        <input class="form-control text-box single-line valid" value="@contract.Customer.FirstName" id="Hotelname" type="text" aria-required="true">
+
+                    </div>
+                    <div class="form-group col">
+                        <label for="Hotelname">Contract Number </label>
+                        <input class="form-control text-box single-line valid" value="@contract.Id" id="Hotelname" type="text" aria-required="true">
+                    </div>
+                </div>
+            </div>
+            <div>
+                @using (Html.BeginForm("UpdateService", "Vouchers", FormMethod.Post))
+                {
+
+                    <input type="hidden" asp-for="Id" id="id" />
+                    <input type="hidden" id="hotelId" value="@contract.HotelId"  />
+                    <input type="hidden" asp-for="CustomerId" id="customerIdincontract" value="@contract.CustomerId" />
+                    <input type="hidden" asp-for="ContractId" id="contractId" value="@contract.Id" />
+
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="col">
+                                <label asp-for="Vat" class="control-label">invoice Taxes</label>
+                                <input asp-for="Vat" required id="vat" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label asp-for="NetPrice" class="control-label">Total invoice Value</label>
+                                <input asp-for="NetPrice" required id="invoicenetPrice" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group col">
+                            <label asp-for="Total" class="control-label">Total value with taxes</label>
+                            <input asp-for="Total" required id="total" class="form-control" />
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                @Html.CheckBoxFor(m => m.IsCredit)
+                                <label for="contractOnly">Is Credit?</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+
+
+                }
+            </div>
+
+            <div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+             GetAllTaxTypeInHotel();
+        });
+         
+        function GetAllTaxTypeInHotel() {
+
+            var id = $("#hotelId").val();
+            if (id > 0) {
+
+                s = 0;
+                $.get("/Settings/GetAllTaxTypeForinvoice/" + id, function (data) {
+                    $.each(data, function (i, j) {
+                        s += parseFloat(j.value)
+                    });
+                    $("#vat").val(s);
+                });
+            }
+        }
+
+        function calctotalValue() {
+            var qty = $("#qty").val();
+            var rentprice = $("#unitPrice").val();//price
+            var totalValue = Number(rentprice) * Number(qty);
+            $("#netPrice").val(totalValue);
+
+        }
+
+    </script>
+}

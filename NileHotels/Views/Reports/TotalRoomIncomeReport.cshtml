@@ -1,0 +1,115 @@
+﻿@model Room
+
+@{
+    Layout = "_LayoutHotel1";
+}
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+
+@*get data*@
+
+
+<div class="card-header pb-0">
+    <div class="row d-flex flex-row">
+        <div class="col-lg-12 col-md-8 col-8">
+
+            <h2> @localizer["Total Rooms Income"]   </h2>
+
+        </div>
+       
+        <div class="about_content ">
+
+            <div class="row">
+                <div class="col">
+                    <h5 class="title_color">@localizer["From"] </h5>
+                    <input type="date" required id="fromTimeid" class="form-control" />
+                </div>
+                <div class="col">
+                    <h5 class="title_color">@localizer["To"] </h5>
+                    <input type="date" required id="toTimeid" class="form-control" />
+                </div>
+            </div>
+            <br />
+            <button class="btn bg-gradient-primary text-white flipundo" onclick="SearchTotalRoomIncomeByTime()">@localizer["search"]</button>
+
+            <br />
+        </div>
+    
+    </div>
+</div>
+
+@*search by time *@
+<div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+        <div style="background-color:white;display:none" id="myDIVSearch">
+           
+
+            <br />
+            <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+                <thead>
+                    <tr>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["RoomNo"]</th>
+
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["RoomType"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Total Income"]</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyTotalIncome">
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+            <br />
+        </div>
+    </div>
+
+
+</div>
+
+
+
+ 
+<div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+        <a type="button" target="_blank" class="btn bg-gradient-primary text-white flipundo" asp-area="" asp-controller="Reports" asp-action="PrintTotalroomincomeReport">@localizer["Print Report"]</a>
+        <div style="background-color:white">
+            <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+                <thead>
+                    <tr>
+                        <th class="text-uppercase   font-weight-bolder align-middle text-center">@localizer["ID"]</th>
+                        <th class="text-uppercase   font-weight-bolder align-middle text-center">@localizer["RoomNo"]</th>
+
+                        <th class="text-uppercase   font-weight-bolder align-middle text-center">@localizer["RoomType"]</th>
+                        <th class="text-uppercase   font-weight-bolder align-middle text-center">@localizer["Total Income"]</th>
+                        </tr>
+                </thead>
+                <tbody id="TotalRoomIncomeReport">
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}
+
+
+

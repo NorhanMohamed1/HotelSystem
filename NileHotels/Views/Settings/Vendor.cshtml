@@ -1,0 +1,275 @@
+﻿@model Vendor
+
+@{
+    Layout = "_LayoutHotel1";
+}
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+
+ 
+
+<div class="card-header pb-0">
+    <div class="row d-flex flex-row">
+        <div class="col-lg-12 col-md-8 col-8">
+            <h2>@localizer["Vendors"] </h2>
+            <button data-bs-toggle="modal" data-bs-target="#EditModal" onclick="clearformVendor()" class="cursor-pointer bg-transparent border-0" style="display:inline-block">
+                <i class="fa-solid fa-plus text-success"></i>
+            </button>
+         </div>
+
+    </div>
+</div>
+
+
+<div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+        <div style="background-color:white">
+            <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+                <thead>
+                    <tr>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Name"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["VatNo"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["ResponsableName"] </th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["FullAddress"] </th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Edit"] </th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Delete"]</th>
+                        <th class="text-uppercase  text-s font-weight-bolder  ps-2">@localizer["Add Contact"]</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyvendor">
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="EditModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title"> @localizer["Add New"] /  @localizer["Edit"] </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    @using (Html.BeginForm("UpdateVendor", "Settings", FormMethod.Post))
+                    {
+                        <div class="modal-body">
+                            <input type="hidden" asp-for="Id" id="id" />
+                            <input type="hidden" asp-for="HotelId" id="hotel" />
+                            <div class="form-group">
+                                <label class="control-label">@localizer["Hotel"]</label>
+                                <select id="Shotelid" class="form-control" disabled="disabled"></select>
+                            </div>
+                           
+                            <div class="row">
+                               
+                                <div class="col">
+                                    <label asp-for="NameAr" class="control-label"></label>
+                                    <input asp-for="NameAr" required id="namear" class="form-control" />
+                                </div>
+                                <div class="col">
+                                    <label asp-for="NameEn" class="control-label"></label>
+                                    <input asp-for="NameEn" required id="nameen" class="form-control" />
+                                </div>
+                                
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label asp-for="AddressAr" class="control-label"></label>
+                                    <input asp-for="AddressAr" required id="addressAr" class="form-control" />
+                                </div>
+                                <div class="col">
+                                    <label asp-for="AddressEn" class="control-label"></label>
+                                    <input asp-for="AddressEn" required id="addressEn" class="form-control" />
+                                </div>
+                              
+                                <div class="form-group col">
+                                    <label class="control-label">@localizer["Country"]</label>
+                                    <select asp-for="CityId" id="countryId" class="form-control"></select>
+                                </div>
+                            </div>
+                            <label asp-for="VatNo" class="control-label"></label>
+                            <input asp-for="VatNo" required id="vatNo" class="form-control" />
+
+                            <label asp-for="ResponsableName" class="control-label"></label>
+                            <input asp-for="ResponsableName" required id="responsableName" class="form-control" />
+
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">@localizer["Submit"]</button>
+                            <button type="button" onclick="clearformVendor()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="DeleteModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title"> @localizer["Delete"]  </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    @using (Html.BeginForm("DeleteVendor", "Settings", FormMethod.Post))
+                    {
+                        <div class="modal-body">
+                            <input type="hidden" asp-for="Id" id="idd" />
+                            
+                             
+                            <div class="row">
+                                <div class="col">
+                                    <label asp-for="NameEn" class="control-label"></label>
+                                    <input asp-for="NameEn" required id="nameend" class="form-control" />
+                                </div>
+                                <div class="col">
+                                    <label asp-for="NameAr" class="control-label"></label>
+                                    <input asp-for="NameAr" required id="nameard" class="form-control" />
+                                </div>
+                                
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label asp-for="AddressEn" class="control-label"></label>
+                                    <input asp-for="AddressEn" required id="addressEnd" class="form-control" />
+                                </div>
+                                <div class="col">
+                                    <label asp-for="AddressAr" class="control-label"></label>
+                                    <input asp-for="AddressAr" required id="addressArd" class="form-control" />
+                                </div>
+                                
+                            </div>
+                            <label asp-for="VatNo" class="control-label"></label>
+                            <input asp-for="VatNo" required id="vatNod" class="form-control" />
+
+                            <label asp-for="ResponsableName" class="control-label"></label>
+                            <input asp-for="ResponsableName" required id="responsableNamed" class="form-control" />
+
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">@localizer["Delete"]</button>
+                            <button type="button" onclick="clearformVendor()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*add Vendor contact*@
+
+<div class="modal" id="contactModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title"> @localizer["Add New"] </h3>
+            </div>
+
+            <div class="modal-body">
+                <div class="box box-primary">
+                    <div class="modal-body">
+                        <input type="hidden" id="vendorid" />
+                        <input type="hidden" id="contactid" />
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="control-label">@localizer["ContactType"]  </label>
+                                <select id="contactTypeId" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="control-label">@localizer["phone/Email"]</label>
+                                <input required id="value" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label class="control-label">@localizer["Description"]</label>
+                                <input required id="description" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="saveVendorContact">@localizer["Submit"]</button>
+                    <button type="button" onclick="clearVendorcontactmodal()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                </div>
+
+                <div class="table-responsive" style="color:white">
+
+                    <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+
+
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["ContactType"]</th>
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["Value"]</th>
+
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["Decription"] </th>
+                                @*<th class="text-uppercase   font-weight-bolder ">@localizer["Edit"] </th>
+                                <th class="text-uppercase   font-weight-bolder ">@localizer["Delete"]</th>*@
+
+
+                            </tr>
+                        </thead>
+                        <tbody id="Vendorcontactbody">
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+     
+}

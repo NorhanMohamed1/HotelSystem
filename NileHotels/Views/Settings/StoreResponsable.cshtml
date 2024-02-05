@@ -1,0 +1,169 @@
+﻿@model StoreResponsable
+
+@{
+    Layout = "_LayoutHotel1";
+}
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+
+
+
+
+
+<div class="card-header pb-0">
+    <div class="row d-flex flex-row">
+        <div class="col-lg-12 col-md-8 col-8">
+            <h2> @localizer["Store Responsables"] </h2>
+            <button data-bs-toggle="modal" data-bs-target="#EditModal" onclick="clearStoreResponsableform()" class="cursor-pointer bg-transparent border-0" style="display:inline-block">
+                <i class="fa-solid fa-plus text-success"></i>
+            </button>
+             <select id="employeeid" onchange="GetAllStoreResponsable()" class="form-control" style="width:150px;display:inline-block" placeholder="Employee Name"></select>
+
+         </div>
+
+    </div>
+</div>
+ 
+
+@*get data*@
+<div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+        <div style="background-color:white">
+   <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+        <thead>
+            <tr>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Name"]</th>
+
+                <th class="text-uppercase   font-weight-bolder ">@localizer["Store"]</th>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["StartDate"]</th>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["EndDate"]</th>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["Edit"] </th>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["Delete"]</th>
+               
+            </tr>
+        </thead>
+                <tbody id="tbodyStoreResponsable">
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>
+    </div>
+</div>
+
+
+@*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditModal" onclick="clearStoreResponsableform()">
+    @localizer["Add New"]
+</button>*@
+
+<div class="modal" id="EditModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title">@localizer["Add New"] /  @localizer["Edit"]  </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    @using (Html.BeginForm("UpdateStoreResponsable", "Settings", FormMethod.Post))
+                    {
+                        <div class="modal-body">
+                            
+                                <div class="form-group">
+                                    <input type="hidden" asp-for="Id" id="id" />
+
+                                    <div class="form-group">
+                                        <label class="control-label">@localizer["Employee Name"]</label>
+                                        <select asp-for="EmployeeId" id="employeeId" class="form-control"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">@localizer["Stores"]</label>
+                                        <select asp-for="StoreId" id="storeId" class="form-control"></select>
+                                    </div>
+
+                                    <label asp-for="StartDate" class="control-label"></label>
+                                    <input asp-for="StartDate" required id="startDate" class="form-control" />
+
+                                    <label asp-for="EndDate" class="control-label"></label>
+                                    <input asp-for="EndDate"  id="endDate" class="form-control" />
+
+                                </div>
+                           
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">@localizer["Submit"]</button>
+                            <button type="button" onclick="clearStoreResponsableform()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="DeleteModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title">@localizer["Delete"]  </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    @using (Html.BeginForm("DeleteStoreResponsable", "Settings", FormMethod.Post))
+                    {
+                        <div class="modal-body">
+                            
+                                <div class="form-group">
+                                    <input type="hidden" asp-for="Id" id="idd" />
+
+                                    <div class="form-group">
+                                        <label class="control-label">@localizer["Employee Name"]</label>
+                                        <select asp-for="EmployeeId" id="employeeIdd" class="form-control"></select>
+                                    </div>
+                                   
+
+                                    <div class="form-group">
+                                        <label class="control-label">@localizer["Stores"]</label>
+                                        <select asp-for="StoreId" id="storeIdd" class="form-control"></select>
+                                    </div>
+
+                                    <label asp-for="StartDate" class="control-label"></label>
+                                    <input asp-for="StartDate" required id="startDated" class="form-control" />
+
+                                    <label asp-for="EndDate" class="control-label"></label>
+                                    <input asp-for="EndDate" id="endDated" class="form-control" />
+                                </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">@localizer["Delete"]</button>
+                            <button type="button" onclick="clearStoreResponsableform()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+   
+}
+
+
+

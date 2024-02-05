@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Hotel" targetNamespace="http://tempuri.org/Hotel.xsd" xmlns:mstns="http://tempuri.org/Hotel.xsd" xmlns="http://tempuri.org/Hotel.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Hotel" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="Hotel" msprop:Generator_DataSetName="Hotel">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Hotel" msprop:Generator_RowEvHandlerName="HotelRowChangeEventHandler" msprop:Generator_RowDeletedName="HotelRowDeleted" msprop:Generator_RowDeletingName="HotelRowDeleting" msprop:Generator_RowEvArgName="HotelRowChangeEvent" msprop:Generator_TablePropName="_Hotel" msprop:Generator_RowChangedName="HotelRowChanged" msprop:Generator_RowChangingName="HotelRowChanging" msprop:Generator_TableClassName="HotelDataTable" msprop:Generator_RowClassName="HotelRow" msprop:Generator_TableVarName="tableHotel" msprop:Generator_UserTableName="Hotel">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="hotelName" msprop:Generator_ColumnPropNameInRow="hotelName" msprop:Generator_ColumnPropNameInTable="hotelNameColumn" msprop:Generator_ColumnVarNameInTable="columnhotelName" msprop:Generator_UserColumnName="hotelName" type="xs:string" minOccurs="0" />
+              <xs:element name="hotelAddress" msprop:Generator_ColumnPropNameInRow="hotelAddress" msprop:Generator_ColumnPropNameInTable="hotelAddressColumn" msprop:Generator_ColumnVarNameInTable="columnhotelAddress" msprop:Generator_UserColumnName="hotelAddress" type="xs:string" minOccurs="0" />
+              <xs:element name="email" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_UserColumnName="email" type="xs:string" minOccurs="0" />
+              <xs:element name="phone" msprop:Generator_ColumnPropNameInRow="phone" msprop:Generator_ColumnPropNameInTable="phoneColumn" msprop:Generator_ColumnVarNameInTable="columnphone" msprop:Generator_UserColumnName="phone" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

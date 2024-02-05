@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
+ function GetRoom() {
+
+            var id = $("#hotelid").val();
+            if (id > 0) {
+                var flatDiv = '';
+                $.get("/Settings/GetAllRoomInHotel/" + id, function (data) {
+
+                    $.each(data, function (i, j) {
+
+                        if (j.nameAr == '?????') {
+                            flatDiv += '
+<div class="card w-80 w-md-40   w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none free" style="background-color:darkgray">
+    ';
+    }
+    else if (j.nameAr == '??? ???????') {
+    flatDiv += '<div class="card w-80 w-md-40   w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none offservice" style="background-color:darkgray">
+    ';
+    }
+    else if (j.nameAr == '??????') {
+    flatDiv += '<div class="card w-80 w-md-40   w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none reserved" style="background-color:darkgray">
+        ';
+        }
+        else  {
+        flatDiv += '<div class="card w-80 w-md-40   w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none hkeeping" style="background-color:darkgray">
+            ';
+            }
+
+            flatDiv += '<form class="cardbody" action="">
+                ';
+                flatDiv += '<div class="card-body front">
+                    ';
+                    flatDiv += '<div class="icon icon-shape shadow text-center border-radius-md rounded-circle"><i class="fa-solid fa-eye text-lg opacity-10"></i></div>';
+                    flatDiv += '<h5 class="card-title mb-1">Room @localizer["Room"] &nbsp;' + j.roomNo + '</h5>';
+                    flatDiv += '<h6 class="card-subtitle mb-1">' + j.nameAr + '</h6>';
+                    flatDiv += '<div class="square bg-light rounded my-4"></div>';
+                    flatDiv += '<div class="col d-flex flex-row justify-content-center align-items-center">
+                        ';
+                        flatDiv += '<a href="#" class="card-link btn text-center mx-2 w-30"><i class="fa-solid fa-print"></i></a>';
+                        flatDiv += '<a href="#" class="card-link btn text-center w-30 mx-2 mx-2 edit" data-bs-toggle="modal" data-bs-target="#editmodal1"> <i class="fa-solid fa-pen"></i></a>';
+                        flatDiv += '<button type="button" class="card-link btn text-center w-30 mx-2"><i class="fa-solid fa-info"></i></button>';
+                        flatDiv += '
+                    </div>';
+                    flatDiv += '
+                </div>';
+                flatDiv += '<div class="card-body back">
+                    ';
+                    flatDiv += '<div class="btn-group mt-3 d-flex justify-content-center">
+                        ';
+                        flatDiv += '<input type="radio" class="btn-check" name="room8" id="room8-1" autocomplete="off" checked>';
+                        flatDiv += '<label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room8-1">Available</label>';
+
+                        flatDiv += '<input type="radio" class="btn-check" name="room8" id="room8-2" autocomplete="off">';
+                        flatDiv += '<label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room8-2">Reserved</label>';
+
+                        flatDiv += '<input type="radio" class="btn-check" name="room8" id="room8-3" autocomplete="off">';
+                        flatDiv += '<label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room8-3">Off Serviece</label>';
+                        flatDiv += '
+                    </div>';
+                    flatDiv += '<div class="btn-group d-flex justify-content-center">
+                        ';
+                        flatDiv += '<input type="radio" class="btn-check" name="room8" id="room8-4" autocomplete="off">';
+                        flatDiv += '<label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room8-4">Keeping</label>';
+
+                        flatDiv += '<input type="radio" class="btn-check" name="room8" id="room8-5" autocomplete="off">';
+                        flatDiv += '<label class="btn btn-outline-primary  w-25 px-0 py-2 m-1 rounded-2" for="room8-5">Maintenance</label>';
+
+                        flatDiv += '<input type="radio" class="btn-check" name="room8" id="room8-6" autocomplete="off">';
+                        flatDiv += '<label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room8-6">Off Serviece</label>';
+                        flatDiv += '
+                    </div>';
+                    flatDiv += '<div class="modal-footer border-0 justify-content-center mt-4">
+                        ';
+                        flatDiv += ' <button type="button" class="btn bg-white shadow-none text-gray flipundo" data-bs-dismiss="modal">Cancel</button>';
+                        flatDiv += '<button type="submit" class="btn bg-gradient-primary text-white flipundo">Save</button>';
+                        flatDiv += '
+                    </div>';
+                    flatDiv += '
+                </div>';
+                flatDiv += '
+            </form>';
+
+            flatDiv += '
+        </div>';
+        });
+        $('#FlatsContainer').html(flatDiv);
+
+        });
+        }
+        }
+
+
+
+
+
+
+        flatDiv += '<div class="cardbody">
+            ';
+            flatDiv += '<div class="card-body front bg-gray-100">
+                ';
+
+                flatDiv += '<div class="icon icon-shape shadow text-center border-radius-md rounded-circle"> <i class="fa-solid fa-eye text-lg opacity-10"> </i></div>';
+
+                flatDiv += '<h5 class="card-title mb-1"> @localizer["Room"] &nbsp;' + j.roomNo + '</h5>';
+                flatDiv += '<h6 class="card-subtitle mb-1">' + j.nameAr + '</h6>';
+
+                flatDiv += '<div class="square bg-light rounded my-4"> </div>';
+
+                flatDiv += '<div class="block" style="display:inline-block;margin:1px"> <span>  ' + j.typename + '</span><label>&nbsp; : ??? ?????? &nbsp;</label></div>';
+                flatDiv += '<div class="block" style="display:inline-block;margin:1px"><span>' + j.floorNo + '</span><label>&nbsp; : ??????&nbsp;</label> </div>';
+                flatDiv += '<div class="block" style="display:inline-block;margin:1px"> <span>' + j.normalPrice + '</span><label>&nbsp; : ??? ?????&nbsp;</label></div>';
+                if (j.nameAr == '?????') {
+                flatDiv += '<div class="block"> <a href="/Vouchers/Contract?room=' + j.id + '" class="button_hover theme_btn_two" style="background-color:#9EB384;color:white">??? ????</a> </div>';
+
+                }
+
+                flatDiv += '
+            </div>
+        </div>
+    </div>';
+
+    <body class="g-sidenav-show  bg-gray-100">
+
+        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+
+            <div class="container-fluid col-15 my-7">
+                <div class="row my-5 d-flex flex-row justify-content-center">
+
+                    <!--flatDiv += '<div class="card">';
+                     flatDiv += '<div class="card">';
+
+
+
+                     flatDiv += '<div class="card">';
+                     flatDiv += '<div class="details">';-->
+
+
+
+
+                    <div class="card w-80 w-md-40 w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none free">
+                        <form class="cardbody" action="">
+                            <div class="card-body front">
+                                <div class="icon icon-shape shadow text-center border-radius-md rounded-circle"><i class="fa-solid fa-eye text-lg opacity-10"></i></div>
+                                <h5 class="card-title mb-1">Room 01</h5>
+                                <h6 class="card-subtitle mb-1">Avilable</h6>
+                                <div class="square bg-light rounded my-4"></div>
+                                <div class="col d-flex flex-row justify-content-center align-items-center">
+                                    <a href="#" class="card-link btn text-center mx-2 w-30"><i class="fa-solid fa-print"></i></a>
+                                    <a href="#" class="card-link btn text-center mx-2 w-30 edit" data-bs-toggle="modal" data-bs-target="#editmodal1"> <i class="fa-solid fa-pen"></i></a>
+                                    <button type="button" class="card-link btn text-center w-30 mx-2"><i class="fa-solid fa-info"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body back">
+                                <div class="btn-group mt-3 d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room1" id="room1-1" autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room1-1">Available</label>
+
+                                    <input type="radio" class="btn-check" name="room1" id="room1-2" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room1-2">Reserved</label>
+
+                                    <input type="radio" class="btn-check" name="room1" id="room1-3" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room1-3">Off Serviece</label>
+                                </div>
+                                <div class="btn-group d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room1" id="room1-4" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room1-4">Keeping</label>
+
+                                    <input type="radio" class="btn-check" name="room1" id="room1-5" autocomplete="off">
+                                    <label class="btn btn-outline-primary  w-25 px-0 py-2 m-1 rounded-2" for="room1-5">Maintenance</label>
+
+                                    <input type="radio" class="btn-check" name="room1" id="room1-6" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room1-6">Off Serviece</label>
+                                </div>
+                                <div class="modal-footer border-0 justify-content-center mt-4">
+                                    <button type="button" class="btn bg-white shadow-none text-gray flipundo" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn bg-gradient-primary text-white flipundo">Save</button>
+
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+                    <div class="card w-80 w-md-40 w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none offservice">
+                        <form class="cardbody" action="">
+                            <div class="card-body front">
+                                <div class="icon icon-shape shadow text-center border-radius-md rounded-circle"><i class="fa-solid fa-eye text-lg opacity-10"></i></div>
+                                <h5 class="card-title mb-1">Room 02</h5>
+                                <h6 class="card-subtitle mb-1">Off Service</h6>
+                                <div class="square bg-light rounded my-4"></div>
+                                <div class="col d-flex flex-row justify-content-center align-items-center">
+                                    <a href="#" class="card-link btn text-center mx-2 w-30"><i class="fa-solid fa-print"></i></a>
+                                    <a href="#" class="card-link btn text-center w-30 mx-2 mx-2 edit" data-bs-toggle="modal" data-bs-target="#editmodal1"> <i class="fa-solid fa-pen"></i></a>
+                                    <button type="button" class="card-link btn text-center w-30 mx-2"><i class="fa-solid fa-info"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body back">
+                                <div class="btn-group mt-3 d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room2" id="room2-1" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room2-1">Available</label>
+
+                                    <input type="radio" class="btn-check" name="room2" id="room2-2" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room2-2">Reserved</label>
+
+                                    <input type="radio" class="btn-check" name="room2" id="room2-3" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room2-3" checked>Off Serviece</label>
+                                </div>
+                                <div class="btn-group d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room2" id="room2-4" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room2-4">Keeping</label>
+
+                                    <input type="radio" class="btn-check" name="room2" id="room2-5" autocomplete="off">
+                                    <label class="btn btn-outline-primary  w-25 px-0 py-2 m-1 rounded-2" for="room2-5">Maintenance</label>
+
+                                    <input type="radio" class="btn-check" name="room2" id="room2-6" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room2-6">Off Serviece</label>
+                                </div>
+                                <div class="modal-footer border-0 justify-content-center mt-4">
+                                    <button type="button" class="btn bg-white shadow-none text-gray flipundo" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn bg-gradient-primary text-white flipundo">Save</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+                    <div class="card w-80 w-md-40 w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none hkeeping">
+                        <form class="cardbody" action="">
+                            <div class="card-body front">
+                                <div class="icon icon-shape shadow text-center border-radius-md rounded-circle"><i class="fa-solid fa-eye text-lg opacity-10"></i></div>
+                                <h5 class="card-title mb-1">Room 03</h5>
+                                <h6 class="card-subtitle mb-1">House keeping</h6>
+                                <div class="square bg-light rounded my-4"></div>
+                                <div class="col d-flex flex-row justify-content-center align-items-center">
+                                    <a href="#" class="card-link btn text-center mx-2 w-30"><i class="fa-solid fa-print"></i></a>
+                                    <a href="#" class="card-link btn text-center w-30 mx-2 mx-2 mx-2 edit" data-bs-toggle="modal" data-bs-target="#editmodal1"> <i class="fa-solid fa-pen"></i></a>
+                                    <button type="button" class="card-link btn text-center w-30 mx-2 mx-2"><i class="fa-solid fa-info"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body back">
+                                <div class="btn-group mt-3 d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room3" id="room3-1" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room3-1">Available</label>
+
+                                    <input type="radio" class="btn-check" name="room3" id="room3-2" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room3-2">Reserved</label>
+
+                                    <input type="radio" class="btn-check" name="room3" id="room3-3" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room3-3">Off Serviece</label>
+                                </div>
+                                <div class="btn-group d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room3" id="room3-4" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room3-4" checked>Keeping</label>
+
+                                    <input type="radio" class="btn-check" name="room3" id="room3-5" autocomplete="off">
+                                    <label class="btn btn-outline-primary  w-25 px-0 py-2 m-1 rounded-2" for="room3-5">Maintenance</label>
+
+                                    <input type="radio" class="btn-check" name="room3" id="room3-6" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room3-6">Off Serviece</label>
+                                </div>
+                                <div class="modal-footer border-0 justify-content-center mt-4">
+                                    <button type="button" class="btn bg-white shadow-none text-gray flipundo" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn bg-gradient-primary text-white flipundo">Save</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+                    <div class="card w-80 w-md-40 w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none reserved">
+                        <form class="cardbody" action="">
+                            <div class="card-body front">
+                                <div class="icon icon-shape shadow text-center border-radius-md rounded-circle"><i class="fa-solid fa-eye text-lg opacity-10"></i></div>
+                                <h5 class="card-title mb-1">Room 04</h5>
+                                <h6 class="card-subtitle mb-1">Reserved</h6>
+                                <div class="square bg-light rounded my-4"></div>
+                                <div class="col d-flex flex-row justify-content-center align-items-center">
+                                    <a href="#" class="card-link btn text-center mx-2 w-30"><i class="fa-solid fa-print"></i></a>
+                                    <a href="#" class="card-link btn text-center w-30 mx-2 mx-2 mx-2 edit" data-bs-toggle="modal" data-bs-target="#editmodal1"> <i class="fa-solid fa-pen"></i></a>
+                                    <button type="button" class="card-link btn text-center w-30 mx-2 mx-2"><i class="fa-solid fa-info"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body back">
+                                <div class="btn-group mt-3 d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room3" id="room3-1" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room3-1">Available</label>
+
+                                    <input type="radio" class="btn-check" name="room3" id="room3-2" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room3-2" checked>Reserved</label>
+
+                                    <input type="radio" class="btn-check" name="room3" id="room3-3" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room3-3">Off Serviece</label>
+                                </div>
+                                <div class="btn-group d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room3" id="room3-4" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room3-4">Keeping</label>
+
+                                    <input type="radio" class="btn-check" name="room3" id="room3-5" autocomplete="off">
+                                    <label class="btn btn-outline-primary  w-25 px-0 py-2 m-1 rounded-2" for="room3-5">Maintenance</label>
+
+                                    <input type="radio" class="btn-check" name="room3" id="room3-6" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room3-6">Off Serviece</label>
+                                </div>
+                                <div class="modal-footer border-0 justify-content-center mt-4">
+                                    <button type="button" class="btn bg-white shadow-none text-gray flipundo" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn bg-gradient-primary text-white flipundo">Save</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+                    <div class="card w-80 w-md-40 w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none reserved">
+                        <form class="cardbody" action="">
+                            <div class="card-body front">
+                                <div class="icon icon-shape shadow text-center border-radius-md rounded-circle"><i class="fa-solid fa-eye text-lg opacity-10"></i></div>
+                                <h5 class="card-title mb-1">Room 05</h5>
+                                <h6 class="card-subtitle mb-1">Reserved</h6>
+                                <div class="square bg-light rounded my-4"></div>
+                                <div class="col d-flex flex-row justify-content-center align-items-center">
+                                    <a href="#" class="card-link btn text-center mx-2 w-30"><i class="fa-solid fa-print"></i></a>
+                                    <a href="#" class="card-link btn text-center w-30 mx-2 edit" data-bs-toggle="modal" data-bs-target="#editmodal1"> <i class="fa-solid fa-pen"></i></a>
+                                    <button type="button" class="card-link btn text-center w-30 mx-2"><i class="fa-solid fa-info"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body back">
+                                <div class="btn-group mt-3 d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room5" id="room5-1" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room5-1">Available</label>
+
+                                    <input type="radio" class="btn-check" name="room5" id="room5-2" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room5-2" checked>Reserved</label>
+
+                                    <input type="radio" class="btn-check" name="room5" id="room5-3" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room5-3">Off Serviece</label>
+                                </div>
+                                <div class="btn-group d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room5" id="room5-4" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room5-4">Keeping</label>
+
+                                    <input type="radio" class="btn-check" name="room5" id="room5-5" autocomplete="off">
+                                    <label class="btn btn-outline-primary  w-25 px-0 py-2 m-1 rounded-2" for="room5-5">Maintenance</label>
+
+                                    <input type="radio" class="btn-check" name="room5" id="room5-6" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room5-6">Off Serviece</label>
+                                </div>
+                                <div class="modal-footer border-0 justify-content-center mt-4">
+                                    <button type="button" class="btn bg-white shadow-none text-gray flipundo" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn bg-gradient-primary text-white flipundo">Save</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+                    <div class="card w-80 w-md-40 w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none maintenance">
+                        <form class="cardbody" action="">
+                            <div class="card-body front">
+                                <div class="icon icon-shape shadow text-center border-radius-md rounded-circle"><i class="fa-solid fa-eye text-lg opacity-10"></i></div>
+
+                                <h5 class="card-title mb-1">Room 06</h5>
+                                <h6 class="card-subtitle mb-1">Under maintenance</h6>
+                                <div class="square bg-light rounded my-4"></div>
+                                <div class="col d-flex flex-row justify-content-center align-items-center">
+                                    <a href="#" class="card-link btn text-center mx-2 w-30"><i class="fa-solid fa-print"></i></a>
+                                    <a href="#" class="card-link btn text-center w-30 mx-2 mx-2 edit" data-bs-toggle="modal" data-bs-target="#editmodal1"> <i class="fa-solid fa-pen"></i></a>
+                                    <button type="button" class="card-link btn text-center w-30 mx-2"><i class="fa-solid fa-info"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body back">
+                                <div class="btn-group mt-3 d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room6" id="room6-1" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room6-1">Available</label>
+
+                                    <input type="radio" class="btn-check" name="room6" id="room6-2" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room6-2">Reserved</label>
+
+                                    <input type="radio" class="btn-check" name="room6" id="room6-3" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room6-3">Off Serviece</label>
+                                </div>
+                                <div class="btn-group d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room6" id="room6-4" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room6-4">Keeping</label>
+
+                                    <input type="radio" class="btn-check" name="room6" id="room6-5" autocomplete="off">
+                                    <label class="btn btn-outline-primary  w-25 px-0 py-2 m-1 rounded-2" for="room6-5" checked>Maintenance</label>
+
+                                    <input type="radio" class="btn-check" name="room6" id="room6-6" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room6-6">Off Serviece</label>
+                                </div>
+                                <div class="modal-footer border-0 justify-content-center mt-4">
+                                    <button type="button" class="btn bg-white shadow-none text-gray flipundo" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn bg-gradient-primary text-white flipundo">Save</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+                    <div class="card w-80 w-md-40 w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none free">
+
+                        <form class="cardbody" action="">
+                            <div class="card-body front">
+                                <div class="icon icon-shape shadow text-center border-radius-md rounded-circle"><i class="fa-solid fa-eye text-lg opacity-10"></i></div>
+                                <h5 class="card-title mb-1">Room 07</h5>
+                                <h6 class="card-subtitle mb-1">Avilable</h6>
+                                <div class="square bg-light rounded my-4"></div>
+                                <div class="col d-flex flex-row justify-content-center align-items-center">
+                                    <a href="#" class="card-link btn text-center mx-2 w-30"><i class="fa-solid fa-print"></i></a>
+                                    <a href="#" class="card-link btn text-center w-30 mx-2 mx-2 edit" data-bs-toggle="modal" data-bs-target="#editmodal1"> <i class="fa-solid fa-pen"></i></a>
+                                    <button type="button" class="card-link btn text-center w-30 mx-2"><i class="fa-solid fa-info"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body back">
+                                <div class="btn-group mt-3 d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room7" id="room7-1" autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room7-1">Available</label>
+
+                                    <input type="radio" class="btn-check" name="room7" id="room7-2" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room7-2">Reserved</label>
+
+                                    <input type="radio" class="btn-check" name="room7" id="room7-3" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room7-3">Off Serviece</label>
+                                </div>
+                                <div class="btn-group d-flex justify-content-center">
+                                    <input type="radio" class="btn-check" name="room7" id="room7-4" autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room7-4">Keeping</label>
+
+                                    <input type="radio" class="btn-check" name="room7" id="room7-5" autocomplete="off">
+                                    <label class="btn btn-outline-primary  w-25 px-0 py-2 m-1 rounded-2" for="room7-5">Maintenance</label>
+
+                                    <input type="radio" class="btn-check" name="room7" id="room7-6" autocomplete="off">
+                                    <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room7-6">Off Serviece</label>
+                                </div>
+                                <div class="modal-footer border-0 justify-content-center mt-4">
+                                    <button type="button" class="btn bg-white shadow-none text-gray flipundo" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn bg-gradient-primary text-white flipundo">Save</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+
+
+                    flatDiv += '<div class="card w-80 w-md-40 w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none free">
+
+
+
+                        <div class="card w-80 w-md-40 w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none free">
+                            <form class="cardbody" action="">
+                                <div class="card-body front">
+                                    <div class="icon icon-shape shadow text-center border-radius-md rounded-circle"><i class="fa-solid fa-eye text-lg opacity-10"></i></div>
+                                    <h5 class="card-title mb-1">Room 9</h5>
+                                    <h6 class="card-subtitle mb-1">Avilable</h6>
+                                    <div class="square bg-light rounded my-4"></div>
+                                    <div class="col d-flex flex-row justify-content-center align-items-center">
+                                        <a href="#" class="card-link btn text-center mx-2 w-30"><i class="fa-solid fa-print"></i></a>
+                                        <a href="#" class="card-link btn text-center w-30 mx-2 mx-2 edit" data-bs-toggle="modal" data-bs-target="#editmodal1"> <i class="fa-solid fa-pen"></i></a>
+                                        <button type="button" class="card-link btn text-center w-30 mx-2"><i class="fa-solid fa-info"></i></button>
+                                    </div>
+                                </div>
+                                <div class="card-body back">
+                                    <div class="btn-group mt-3 d-flex justify-content-center">
+                                        <input type="radio" class="btn-check" name="room9" id="room9-1" autocomplete="off" checked>
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room9-1">Available</label>
+
+                                        <input type="radio" class="btn-check" name="room9" id="room9-2" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room9-2">Reserved</label>
+
+                                        <input type="radio" class="btn-check" name="room9" id="room9-3" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room9-3">Off Serviece</label>
+                                    </div>
+                                    <div class="btn-group d-flex justify-content-center">
+                                        <input type="radio" class="btn-check" name="room9" id="room9-4" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room9-4">Keeping</label>
+
+                                        <input type="radio" class="btn-check" name="room9" id="room9-5" autocomplete="off">
+                                        <label class="btn btn-outline-primary  w-25 px-0 py-2 m-1 rounded-2" for="room9-5">Maintenance</label>
+
+                                        <input type="radio" class="btn-check" name="room9" id="room9-6" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room9-6">Off Serviece</label>
+                                    </div>
+                                    <div class="modal-footer border-0 justify-content-center mt-4">
+                                        <button type="button" class="btn bg-white shadow-none text-gray flipundo" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn bg-gradient-primary text-white flipundo">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+
+                        <div class="card w-80 w-md-40 w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none reserved">
+                            <form class="cardbody" action="">
+                                <div class="card-body front">
+                                    <div class="icon icon-shape shadow text-center border-radius-md rounded-circle"><i class="fa-solid fa-eye text-lg opacity-10"></i></div>
+                                    <h5 class="card-title mb-1">Room 10</h5>
+                                    <h6 class="card-subtitle mb-1">Reserved</h6>
+                                    <div class="square bg-light rounded my-4"></div>
+                                    <div class="col d-flex flex-row justify-content-center align-items-center">
+                                        <a href="#" class="card-link btn text-center mx-2 w-30"><i class="fa-solid fa-print"></i></a>
+                                        <a href="#" class="card-link btn text-center w-30 mx-2 mx-2 edit" data-bs-toggle="modal" data-bs-target="#editmodal1"> <i class="fa-solid fa-pen"></i></a>
+                                        <button type="button" class="card-link btn text-center w-30 mx-2"><i class="fa-solid fa-info"></i></button>
+                                    </div>
+                                </div>
+                                <div class="card-body back">
+                                    <div class="btn-group mt-3 d-flex justify-content-center">
+                                        <input type="radio" class="btn-check" name="room10" id="room10-1" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room10-1">Available</label>
+
+                                        <input type="radio" class="btn-check" name="room10" id="room10-2" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room10-2" checked>Reserved</label>
+
+                                        <input type="radio" class="btn-check" name="room10" id="room10-3" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room10-3">Off Serviece</label>
+                                    </div>
+                                    <div class="btn-group d-flex justify-content-center">
+                                        <input type="radio" class="btn-check" name="room10" id="room10-4" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room10-4">Keeping</label>
+
+                                        <input type="radio" class="btn-check" name="room10" id="room10-5" autocomplete="off">
+                                        <label class="btn btn-outline-primary  w-25 px-0 py-2 m-1 rounded-2" for="room10-5">Maintenance</label>
+
+                                        <input type="radio" class="btn-check" name="room10" id="room10-6" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room10-6">Off Serviece</label>
+                                    </div>
+                                    <div class="modal-footer border-0 justify-content-center mt-4">
+                                        <button type="button" class="btn bg-white shadow-none text-gray flipundo" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn bg-gradient-primary text-white flipundo">Save</button>
+                                    </div>
+                                </div>
+                            </form>>
+
+                        </div>
+
+
+                        <div class="card w-80 w-md-40 w-lg-30 w-sm-80 mx-2 mb-4 free bg-transparent shadow-none">
+
+                            <form class="cardbody" action="">
+                                <div class="card-body front">
+                                    <div class="icon icon-shape shadow text-center border-radius-md rounded-circle"><i class="fa-solid fa-eye text-lg opacity-10"></i></div>
+                                    <h5 class="card-title mb-1">Room 11</h5>
+                                    <h6 class="card-subtitle mb-1">Avilable</h6>
+                                    <div class="square bg-light rounded my-4"></div>
+                                    <div class="col d-flex flex-row justify-content-center align-items-center">
+                                        <a href="#" class="card-link btn text-center mx-2 w-30"><i class="fa-solid fa-print"></i></a>
+                                        <a href="#" class="card-link btn text-center w-30 mx-2 mx-2 edit" data-bs-toggle="modal" data-bs-target="#editmodal1"> <i class="fa-solid fa-pen"></i></a>
+                                        <button type="button" class="card-link btn text-center w-30 mx-2"><i class="fa-solid fa-info"></i></button>
+                                    </div>
+                                </div>
+                                <div class="card-body back">
+                                    <div class="btn-group mt-3 d-flex justify-content-center">
+                                        <input type="radio" class="btn-check" name="room11" id="room11-1" autocomplete="off" checked>
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room11-1" checked>Available</label>
+
+                                        <input type="radio" class="btn-check" name="room11" id="room11-2" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room11-2">Reserved</label>
+
+                                        <input type="radio" class="btn-check" name="room11" id="room11-3" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room11-3">Off Serviece</label>
+                                    </div>
+                                    <div class="btn-group d-flex justify-content-center">
+                                        <input type="radio" class="btn-check" name="room11" id="room11-4" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room11-4">Keeping</label>
+
+                                        <input type="radio" class="btn-check" name="room11" id="room11-5" autocomplete="off">
+                                        <label class="btn btn-outline-primary  w-25 px-0 py-2 m-1 rounded-2" for="room11-5">Maintenance</label>
+
+                                        <input type="radio" class="btn-check" name="room11" id="room11-6" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room11-6">Off Serviece</label>
+                                    </div>
+                                    <div class="modal-footer border-0 justify-content-center mt-4">
+                                        <button type="button" class="btn bg-white shadow-none text-gray flipundo" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn bg-gradient-primary text-white flipundo">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+
+                        <div class="card w-80 w-md-40 w-lg-30 w-sm-80 mx-2 mb-4 bg-transparent shadow-none reserved">
+                            <form class="cardbody" action="">
+                                <div class="card-body front">
+                                    <div class="icon icon-shape shadow text-center border-radius-md rounded-circle"><i class="fa-solid fa-eye text-lg opacity-10"></i></div>
+                                    <h5 class="card-title mb-1">Room 12</h5>
+                                    <h6 class="card-subtitle mb-1">Reserved</h6>
+                                    <div class="square bg-light rounded my-4"></div>
+                                    <div class="col d-flex flex-row justify-content-center align-items-center">
+                                        <a href="#" class="card-link btn text-center mx-2 w-30"><i class="fa-solid fa-print"></i></a>
+                                        <a href="#" class="card-link btn text-center w-30 mx-2 mx-2 edit" data-bs-toggle="modal" data-bs-target="#editmodal1"> <i class="fa-solid fa-pen"></i></a>
+                                        <button type="button" class="card-link btn text-center w-30 mx-2"><i class="fa-solid fa-info"></i></button>
+                                    </div>
+                                </div>
+                                <div class="card-body back">
+                                    <div class="btn-group mt-3 d-flex justify-content-center">
+                                        <input type="radio" class="btn-check" name="room12" id="room12-1" autocomplete="off" checked>
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room12-1">Available</label>
+
+                                        <input type="radio" class="btn-check" name="room12" id="room12-2" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room12-2" checked>Reserved</label>
+
+                                        <input type="radio" class="btn-check" name="room12" id="room12-3" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room12-3">Off Serviece</label>
+                                    </div>
+                                    <div class="btn-group d-flex justify-content-center">
+                                        <input type="radio" class="btn-check" name="room12" id="room12-4" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room12-4">Keeping</label>
+
+                                        <input type="radio" class="btn-check" name="room12" id="room12-5" autocomplete="off">
+                                        <label class="btn btn-outline-primary  w-25 px-0 py-2 m-1 rounded-2" for="room12-5">Maintenance</label>
+
+                                        <input type="radio" class="btn-check" name="room12" id="room12-6" autocomplete="off">
+                                        <label class="btn btn-outline-primary w-25 px-0 py-2 m-1 rounded-2" for="room12-6">Off Serviece</label>
+                                    </div>
+                                    <div class="modal-footer border-0 justify-content-center mt-4">
+                                        <button type="button" class="btn bg-white shadow-none text-gray flipundo" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn bg-gradient-primary text-white flipundo">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+        </main>
+
+        <!--   Core JS Files   -->
+        flatDiv += '<div class="block" style="display:inline-block;margin:1px"> <span>  ' + j.typename + '</span><label>&nbsp; : ??? ?????? &nbsp;</label></div>';
+        flatDiv += '<div class="block" style="display:inline-block;margin:1px"><span>' + j.floorNo + '</span><label>&nbsp; : ??????&nbsp;</label> </div>';
+        flatDiv += '<div class="block" style="display:inline-block;margin:1px"> <span>' + j.normalPrice + '</span><label>&nbsp; : ??? ?????&nbsp;</label></div>';
+        if (j.nameAr == '?????') {
+        flatDiv += '<div class="block"> <a href="/Vouchers/Contract?room=' + j.id + '" class="button_hover theme_btn_two" style="background-color:#9EB384;color:white">??? ????</a> </div>';
+
+        }
+
+
+
+
+
+
+    </body>
+
+</html>

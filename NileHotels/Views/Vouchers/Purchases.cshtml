@@ -1,0 +1,263 @@
+﻿@model PurchaseViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> loc  
+
+ 
+  
+<div class="row">
+    <div class="col-md-8">
+        <div class="about_content ">
+            <h3 class="title_color">@loc["New Purchases"]</h3>
+           
+            <div class="about_content ">
+                <br />  
+                <div class="row"> 
+                    <div class="form-group col">
+                        <h5 class="title_color">@loc["Vendor Name"] </h5>
+                        <input required id="vendorNameid" class="form-control" style="text-align:right" />
+                    </div>
+                </div> 
+                <button class="btn bg-gradient-primary text-white flipundo" onclick="GetVendorByName()">@loc["search"]</button>
+                <br />
+                <div id="tbodySearchVendor"></div>
+            </div>
+           
+        </div> 
+        @*Purchases Item *@
+        <div class="about_content ">
+                <h3 class="title_color">@loc["Products"]</h3>
+            <button data-bs-toggle="modal" data-bs-target="#ProductModal" onclick="clearformAsset()" class="cursor-pointer bg-transparent border-0" style="display:inline-block">
+                <i class="fa-solid fa-plus text-success"></i>
+            </button>
+@*                <select id="storeid" class="form-control" onchange="SelectAllProductByStore()"></select>
+*@            <select id="assetTypeId" class="form-control" onchange="SelectAllProductByAssetType()"></select>
+                <div class=" bg-gray-100 rounded-3 ">
+                    <div class="row my-5 d-flex flex-row justify-content-center " id="productid">
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    <div class="col-md-4">
+        <h3 class="title_color"> @loc["Purchases invoice"] </h3>
+        <div> 
+            <div class="table-responsive">
+                <table id="orderedProducts" class="table" style="color:black;width:142px;display:table;">
+                    <thead>
+                        <tr>
+                            <th>*</th>
+                            <th>@loc["Name"]</th>
+                            <th style="display:none">@loc["Price"]</th>
+                            <th>@loc["Qty"]</th>
+                            <th>@loc["Total"]</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyPurchases">
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+            </div>
+            <div>
+                <div>
+                    <input type="hidden" id="id" />
+                    <input type="hidden" id="hotelId" />
+                    <input type="hidden" id="purchasesVendorid" />
+                    @*<input type="hidden" id="paymentTypeId" value="2" />*@
+                    @*<input type="hidden" id="purchasesStoreId" />*@
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label   class="control-label">@loc["Date"]</label>
+                        <input   id="purchasesdate" required class="form-control" value="@DateTime.Now" type="datetime" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label   class="control-label">@loc["invoice Taxes"]</label>
+                        <input required id="invoicevat" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label   class="control-label">@loc["Total invoice Value"]</label>
+                        <input required id="purchasNetPrice" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label  class="control-label">@loc["Total value with taxes"]</label>
+                        <input required id="purchastotalValueWithTaxes" class="form-control" style="width:fit-content" />
+                    </div>
+
+                </div> 
+                <div>
+                    <br />
+                     
+
+                    <a type="button" id="insertPurchasesItems" class="btn btn-primary">@loc["Submit"]</a>
+                @*<a type="button" target="_blank" class="btn bg-gradient-primary text-white flipundo" asp-area="" asp-controller="Reports" asp-action="PrintClientsReport">@loc["Print Report"]</a>*@
+
+                @*<a type="submit" asp-controller="Vouchers" asp-area="" asp-action="UpdateService" class="btn btn-primary">Submit</a>*@
+
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*add new Vendor *@ 
+<div class="modal" id="EditModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title"> @loc["Add New"] </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    <div class="modal-body"> 
+                        <input type="hidden" id="newVendorid" />
+                        <input type="hidden" id="vendorhotelId" /> 
+                        <div class="form-group">
+                            <label class="control-label">@loc["Hotel"]</label>
+                            <select id="Shotelid" class="form-control" disabled="disabled"></select>
+                        </div>
+                    
+
+                    <div class="row"> 
+                        <div class="col">
+                                <label class="control-label">@loc["NameAr"]</label>
+                             <input   required id="namear" class="form-control" />
+                        </div>
+                        <div class="col">
+                                <label class="control-label">@loc["NameEn"]</label>
+                            <input   required id="nameen" class="form-control" />
+                        </div> 
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                                <label class="control-label">@loc["AddressAr"]</label>
+                            <input   required id="addressAr" class="form-control" />
+                        </div>
+                        <div class="col">
+                                <label class="control-label">@loc["FullAddressEn"]</label>
+                            <input   required id="addressEn" class="form-control" />
+                        </div>
+
+                        <div class="form-group col">
+                            <label class="control-label">@loc["Country"]</label>
+                            <select   id="countryId" class="form-control"></select>
+                        </div>
+                    </div>
+                        <label class="control-label">@loc["VatNo"]</label>
+                    <input   required id="vatNo" class="form-control" />
+
+                        <label class="control-label">@loc["ResponsableName"]</label>
+                    <input    required id="responsableName" class="form-control" />
+
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                        <button type="submit" id="addNewVendor" class="btn btn-primary">@loc["Submit"]</button>
+                    <button type="button" onclick="clearformVendor()" class="btn btn-default pull-right" data-bs-dismiss="modal">@loc["Close"]</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*add new Product *@
+<div class="modal" id="ProductModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+
+                <h3 class="box-title"> @loc["Add New"]   </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                     
+                        <div class="modal-body">
+                            <input type="hidden"   id="newProductId" /> 
+                            
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label>@loc["Choose a naturel of Asset"]</label>
+                                    <select  id="naturelofAsset" class="form-control">
+                                        <option value="Product">@loc["Product"]</option>
+                                        <option value="Asset">@loc["Asset"]</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col">
+                                    <label class="control-label">@loc["Asset Type"]</label>
+                                    <select   id="assetTypeId" class="form-control"></select>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="control-label">@loc["SerialNo"]</label>
+                                    <input   required id="serialNo" class="form-control" />
+                                </div>
+                                <div class="form-group col">
+                                    <label class="control-label">@loc["Unit Type"]</label>
+                                    <select   id="unitTypeId" class="form-control"></select>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label class="control-label">@loc["NameAr"]</label>
+                                    <input   required id="productnamear" class="form-control" />
+
+                                </div>
+                                <div class="col">
+                                    <label class="control-label">@loc["NameEn"]</label>
+                                <input required id="productnameen" class="form-control" />
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col">
+                                <label class="control-label">@loc["price"]</label>
+                                    <input  required id="price" class="form-control" />
+                                </div>
+                                <div class="col">
+                                <label class="control-label">@loc["decription"]</label>
+                                    <input   required id="decription" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="submit" id="insertNewProduct" class="btn btn-primary">@loc["Submit"]</button>
+                            <button type="button" onclick="clearformAsset()" class="btn btn-default pull-right" data-bs-dismiss="modal">@loc["Close"]</button>
+                        </div>
+                     
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

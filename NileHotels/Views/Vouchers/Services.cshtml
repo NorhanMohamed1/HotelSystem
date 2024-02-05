@@ -1,0 +1,154 @@
+﻿@model ContractServices
+
+@{
+    var contract = (Contracts)ViewData["Contract"] ;
+}
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+@*Service *@
+<div class="row p-3">
+
+    <div class="col-md-4">
+        <h3 class="title_color"> @localizer["Service invoice"] </h3>
+
+        <div>
+           
+            <div class="table-responsive">
+                <table id="orderedProducts" class="table" style="color:black;width:142px;display:table;">
+                    <thead>
+                        <tr>
+                            <th>*</th>
+                            <th>@localizer["Name"]</th>
+                            <th style="display:none">@localizer["Price"]</th>
+                            <th>@localizer["Qty"]</th>
+                            <th>@localizer["Total"]</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyproduct">
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+            </div>
+
+            <input type="hidden" id="id" />
+            @if (contract != null)
+            {
+                <input type="hidden" id="hotelId" value="@contract.HotelId" />
+                <input type="hidden" id="customerIdincontract" value="@contract.CustomerId" />
+                <input type="hidden" id="contractId" value="@contract.Id" />
+            }
+            else
+            {
+                <input type="hidden" id="hotelId"   />
+                <input type="hidden" id="customerIdincontract" value="0" />
+                <input type="hidden" id="contractId" value="0" />
+            }
+           
+            <input type="hidden" id="paymentTypeId" value="2" />
+            <input type="hidden" id="servicesStoreId" />
+ 
+            <div class="row">
+                <div class="col">
+                    <label asp-for="Date" class="control-label">@localizer["Date"]</label>
+                    <input  id="date" required  class="form-control" value="@DateTime.Now" type="datetime" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label asp-for="Vat" class="control-label">@localizer["invoice Taxes"]</label>
+                    <input  required id="invoicevat" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label asp-for="NetPrice" class="control-label">@localizer["Total invoice Value"]</label>
+                    <input   required id="invoiceNetPrice" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label asp-for="Total" class="control-label">@localizer["Total value with taxes"]</label>
+                    <input required id="totalValueWithTaxes" class="form-control" style="width:fit-content" />
+                </div>
+
+            </div>
+            <div class="col">
+                @Html.CheckBoxFor(m => m.IsCredit)
+                <label for="contractOnly">Is Credit?</label>
+            </div>
+
+            <div>
+                <button id="insertServiceItems" class="btn btn-primary">@localizer["Submit"]</button>
+                @*<a type="submit" asp-controller="Vouchers" asp-area="" asp-action="UpdateService" class="btn btn-primary">Submit</a>*@
+
+            </div>
+                   
+        </div>
+    </div>
+
+    @*Service Item *@
+    <div class="col-md-8">
+        <div class="about_content ">
+            <h3 class="title_color">@localizer["Products"]</h3>
+            
+            <div class="row">
+                @if (contract != null)
+                {
+                    <div class="form-group col">
+                        <label for="Hotelname">@localizer["RoomNo"] </label>
+                        <input class="form-control text-box single-line valid" value="@(contract.Room.RoomNo)" id="Hotelname" type="text" aria-required="true">
+                    </div>
+                    <div class="form-group col">
+                        <label for="Hotelname">@localizer["Client"]  </label>
+                        <input class="form-control text-box single-line valid" value="@contract.Customer.FirstName ?? 'None'" id="Hotelname" type="text" aria-required="true">
+                    </div>
+                    <div class="form-group col">
+                        <label for="Hotelname">@localizer["ContractNo"] </label>
+                        <input class="form-control text-box single-line valid" value="@contract.Id" id="Hotelname" type="text" aria-required="true">
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group col">
+                        <label for="Hotelname">@localizer["RoomNo"] </label>
+                        <input class="form-control text-box single-line valid" value="0" id="Hotelname" type="text" aria-required="true">
+                    </div>
+                    <div class="form-group col">
+                        <label for="Hotelname">@localizer["Client"]  </label>
+                        <input class="form-control text-box single-line valid" value="None" id="Hotelname" type="text" aria-required="true">
+                    </div>
+                    <div class="form-group col">
+                        <label for="Hotelname">@localizer["ContractNo"] </label>
+                        <input class="form-control text-box single-line valid" value="0" id="Hotelname" type="text" aria-required="true">
+                    </div>
+                }
+               
+            </div>
+            
+            <select id="storeid" class="form-control" onchange="SelectAllAssetInStore()"></select>
+           
+            <div class=" bg-gray-100 rounded-3 ">
+                <div class="row my-5 d-flex flex-row justify-content-center " id="productid">
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+ 
+}

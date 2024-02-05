@@ -1,0 +1,156 @@
+﻿@model HotelContact
+
+
+<h2 style="text-align:right">  بيانات اتصال الفندق </h2>
+<div class="box-body" style="text-align:right;color:white">
+
+   <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+        <thead>
+            <tr>
+                <th class="text-uppercase   font-weight-bolder "></th>
+
+                <th class="text-uppercase   font-weight-bolder ">ملاحظات </th>
+                <th class="text-uppercase   font-weight-bolder ">بيانات الاتصال</th>
+                <th class="text-uppercase   font-weight-bolder ">Id</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in (List<HotelContact>)ViewData["HotelContacts"])
+            {
+
+                <tr>
+                    <td>
+                        <a>
+                            @Html.ActionLink("Delete", "DeleteCurrency", "Settings", new { id = item.Id }, new { onclick = "return confirm('Are sure wants to delete?');", @class = "fa fa-trash-o" })||
+                        </a>
+                        <a class="btn btn-danger" onclick="EditForm(@item.Id)" id="EditForm" data-bs-toggle="modal" data-bs-target="#EditModal"> Edit </a>||
+                    </td>
+
+                    <td>@item.Description</td>
+                    <td>@item.Value</td>
+                    <td>
+                        @item.Id
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditModal" onclick="clearform()">
+    Create New
+</button>
+
+<div class="modal" id="EditModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+
+                <button type="button" class="close" onclick="clearform()" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="box-title"> New Hotel Contact </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    @using (Html.BeginForm("UpdateHotelContact", "Settings", FormMethod.Post))
+                    {
+                        <div class="modal-body">
+                            <div class="col-md-8">
+                                
+                                <div class="form-group">
+                                    <label class="control-label">وسيلة الاتصال </label>
+                                    <select asp-for="ContactTypeId" id="contactTypeId" class="form-control"></select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" asp-for="Id" id="id" />
+                                    <input type="hidden" asp-for="HotelId" id="hotelId" value="1" />
+                                    <label asp-for="Value" class="control-label"></label>
+                                    <input asp-for="Value" required id="value" class="form-control" />
+
+                                    <label asp-for="Description" class="control-label"></label>
+                                    <input asp-for="Description" required id="description" class="form-control" />
+
+
+                                    <input asp-for="DeletedBy" class="form-control" type="hidden" value="Ahmed" />
+                                    <input asp-for="InsertedBy" class="form-control" type="hidden" value="Ahmed" />
+                                    <input asp-for="UpdatedBy" class="form-control" type="hidden" value="Ahmed" />
+
+                                    <input asp-for="DeletedDate" class="form-control" type="hidden" value="1/7/2023" />
+                                    <input asp-for="InsertedDate" class="form-control" type="hidden" value="1/7/2023" />
+                                    <input asp-for="UpdatedDate" class="form-control" type="hidden" value="1/7/2023" />
+
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" onclick="clearform()" class="btn btn-default pull-right" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+
+        $(document).ready(function () {
+            
+            GetAllContactType();
+        });
+
+        function GetAllContactType() {
+            var ss = "<option value=0>select contact Type</option>";
+            $.get("/Settings/GetAllContactType", function (data) {
+                $.each(data, function (i, j) {
+                    ss = ss + "<option value=" + j.id + ">" + j.nameAr + "</option>";
+                });
+                $("#contactTypeId").html(ss);
+
+            });
+        }
+
+
+
+        function EditForm(id) {
+            $.ajax({
+                type: "POST",
+                url: "/Settings/GetHotelContact",
+                data: { id: id },
+                success: function (HotelContact) {
+                    console.log(HotelContact);
+
+                    $("#value").val(HotelContact.value);
+                    $("#description").val(HotelContact.description);
+
+                    $("#hotelId").val(HotelContact.hotelId);
+                    $("#contactTypeId").val(HotelContact.contactTypeId);
+
+                    $("#id").val(HotelContact.id)
+                }
+            })
+
+
+        }
+
+        function clearform() {
+            $("#id").val(0);
+            $("#namear").val("");
+            $("#nameen").val("");
+        }
+    </script>
+}

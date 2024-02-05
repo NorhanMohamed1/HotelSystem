@@ -1,0 +1,111 @@
+﻿@model Employee
+@{
+    Layout = "_LayoutHotel1";
+}
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+@*get data*@
+
+
+
+<div class="card-header pb-0">
+    <div class="row d-flex flex-row">
+        <div class="col-lg-12 col-md-8 col-8">
+            <h2>@localizer["Employees Report"] </h2> 
+        </div>
+        <div class="about_content ">
+            <div class="row">
+                <div class="form-group col">
+                    <h5 class="title_color">@localizer["IdValue"] </h5>
+                    <input required id="SearchEmployeeid" class="form-control" />
+                </div>
+                <div class="form-group col">
+                    <h5 class="title_color">@localizer["Id Type"] </h5>
+                    <select id="idTypeSearch" class="form-control" required></select>
+                </div>
+
+            </div>
+
+            <button class="btn bg-gradient-primary text-white flipundo" onclick="SearchEmployeeReports()">@localizer["search"]</button>
+
+            <br />
+        </div>
+    </div>
+</div>
+
+
+@*search about Employee *@
+<div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+        <div style="background-color:white;display:none" id="myDIVSearch">
+            <br />
+            <table id="example3" class="table table-bordered  align-items-center mb-0" style="color:black">
+                <thead>
+                    <tr>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Name"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["BirthDate"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["IdValue"] </th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Id Type"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Nationality"] </th>
+
+                    </tr>
+                </thead>
+                <tbody id="tbodysearchEmployeeReport">
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+            <br />
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+        <a type="button" target="_blank" class="btn bg-gradient-primary text-white flipundo" asp-area="" asp-controller="Reports" asp-action="PrintEmployeesReport">@localizer["Print Report"]</a>
+        <div style="background-color:white">
+            <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+                <thead>
+                    <tr>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Name"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["BirthDate"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["IdValue"] </th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Id Type"]</th>
+                        <th class="text-uppercase   font-weight-bolder ">@localizer["Nationality"] </th> 
+
+                    </tr>
+                </thead>
+                <tbody id="tbodyEmployeeReports">
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+ 
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

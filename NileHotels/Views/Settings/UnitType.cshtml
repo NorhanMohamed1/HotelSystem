@@ -1,0 +1,162 @@
+﻿@model UnitType
+
+@{
+    Layout = "_LayoutHotel1";
+    int i = 0;
+
+}
+
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+<div class="card-header pb-0">
+    <div class="row d-flex flex-row">
+        <div class="col-lg-12 col-md-8 col-8">
+            <h2> @localizer["UnitType"] </h2>
+            <button data-bs-toggle="modal" data-bs-target="#EditModal" onclick="clearformUnitType()" class="cursor-pointer bg-transparent border-0" style="display:inline-block">
+                <i class="fa-solid fa-plus text-success"></i>
+            </button>
+
+        </div>
+
+    </div>
+</div>
+<div class="card-body px-0 pb-2">
+    <div class="table-responsive">
+        <div style="background-color:white">
+
+   <table id="example1" class="table table-bordered  align-items-center mb-0" style="color:black">
+        <thead>
+            <tr>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["ID"]</th>
+
+                <th class="text-uppercase   font-weight-bolder ">@localizer["NameAr"]</th>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["NameEn"]</th>
+
+                <th class="text-uppercase   font-weight-bolder ">@localizer["Edit"] </th>
+                <th class="text-uppercase   font-weight-bolder ">@localizer["Delete"]</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in (List<UnitType>)ViewData["UnitTypes"])
+            {
+                        <tr>
+                            <td class='align-middle text-center text-sm'>@(++i)</td>
+                            <td class='align-middle text-center text-sm'>@item.NameAr</td>
+                            <td class='align-middle text-center text-sm'>@item.NameEn</td>
+                            <td class='align-middle text-center text-sm'>
+                                <button id='EditForm' data-bs-toggle='modal' data-bs-target='#EditModal' class='card-link btn text-center w-30 mx-2 mx-2 edit' onclick="EditFormUnitType(@item.Id)">
+                                    <i class='fa-solid fa-pen' aria-hidden='true'></i>
+                                </button>
+                            </td>
+                            <td class='float-end me-4'>
+                                <button id='DeleteForm' class='btn btn-link text-danger text-gradient px-3 mb-0' data-bs-toggle='modal' data-bs-target='#DeleteModal' onclick="DeleteFormUnitType(@item.Id)">
+                                    <i class='fa-regular fa-trash-can me-2' aria-hidden='true'></i>
+                                </button>
+                            </td>
+                        </tr>
+            }
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>
+
+    </div>
+</div>
+@*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditModal" onclick="clearformUnitType()">
+    @localizer["Add New"]
+</button>*@
+
+<div class="modal" id="EditModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+
+                <h3 class="box-title">  @localizer["Add New"] /  @localizer["Edit"] </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    @using (Html.BeginForm("UpdateUnitType", "Settings", FormMethod.Post))
+                    {
+                        <div class="modal-body">
+                                <div class="form-group">
+                                    <input type="hidden" asp-for="Id" id="id" />
+
+                                    <label asp-for="NameAr" class="control-label"></label>
+                                    <input asp-for="NameAr" required id="namear" class="form-control" />
+
+                                    <label asp-for="NameEn" class="control-label"></label>
+                                    <input asp-for="NameEn" required id="nameen" class="form-control" />
+
+                                </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">@localizer["Submit"]</button>
+                            <button type="button" onclick="clearformUnitType()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="DeleteModal">
+    <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header with-border">
+                <h3 class="box-title"> @localizer["Delete"]  </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box box-primary">
+                    @using (Html.BeginForm("DeleteUnitType", "Settings", FormMethod.Post))
+                    {
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input type="hidden" asp-for="Id" id="idd" />
+
+                                <label asp-for="NameAr" class="control-label"></label>
+                                <input asp-for="NameAr" required id="nameArd" class="form-control" />
+
+                                <label asp-for="NameEn" class="control-label"></label>
+                                <input asp-for="NameEn" required id="nameEnd" class="form-control" />
+
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">@localizer["Delete"]</button>
+                            <button type="button" onclick="clearformUnitType()" class="btn btn-default pull-right" data-bs-dismiss="modal">@localizer["Close"]</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        
+    </script>
+}
+
+

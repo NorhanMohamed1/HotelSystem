@@ -1,0 +1,349 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using NileHotels.Resources
+@inject IHtmlLocalizer<Resource> localizer
+
+<!DOCTYPE html>
+<html id="htmltag" class="htmltag">
+<head>  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    
+    <title>@ViewData["Title"] - NileHotels</title>
+    
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/assets/img/favicon.png">
+
+   
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/1e6c57a711.js" crossorigin="anonymous"></script>
+    <!-- CSS Files -->
+
+
+    @if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        @*<link rel="stylesheet"
+              href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css"
+              integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe"
+              crossorigin="anonymous" />*@
+
+        <link id="pagestyle" href="~/assets/css/bootstrap ar.css" rel="stylesheet" />
+
+
+        //add your own files
+        <style>
+            table {
+                direction: rtl
+            }
+            
+            * {
+                text-align: right
+            }
+        </style>
+    }
+    else
+    {
+        <link id="pagestyle" href="~/assets/css/bootstrap.css" rel="stylesheet" />
+
+    }
+
+</head>
+<body class="g-sidenav-show">
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 mx-3 fixed-start d-lg-block bg-white">
+
+        <div class="sidenav-header">
+            <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+
+            <a class="navbar-brand m-0" asp-controller="Home" asp-action="Index" target="_blank">
+                <img src="~/assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-1 font-weight-bold">Nile Hotel </span>
+            </a>
+        </div>
+        <hr class="horizontal dark mt-0">
+        <div class="collapse navbar-collapse w-auto h-auto " id="sidenav-collapse-main">
+            <ul class="navbar-nav mb-4 rounded">
+                <li class="nav-item">
+                    <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-house text-dark fs-6 pb-1"></i>
+                        </div>
+                        <span class="nav-link-text mx-4">@localizer["Home"]</span>
+
+                    </a>
+                </li>
+
+
+                @*  <li class="nav-item">
+                <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseside3" aria-expanded="false" aria-controls="collapseside2">
+                <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fa-solid fa-table fa-2xs text-dark fs-6  pb-1"></i>
+                </div>
+                <span class="nav-link-text mx-3">@localizer["Room"]</span>
+                </a>
+                <div class="collapse ps-4" id="collapseside3">
+                <div class="navbar-nav  mb-4 rounded bg-gray-100 ">
+
+                </div>
+
+                </div>
+                </li>
+
+                *@
+
+                <li class="nav-item">
+                    <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseside4" aria-expanded="false" aria-controls="collapseside2">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-table fa-2xs text-dark fs-6  pb-1"></i>
+                        </div>
+                        <span class="nav-link-text mx-3">@localizer["Reservation"]</span>
+                    </a>
+                    <div class="collapse ps-4" id="collapseside4">
+                        <div class="navbar-nav  mb-4 rounded bg-gray-100 md-bg-white">
+                            <a href="\Settings\Roomscheme" class="nav-link btn-outline-light">@localizer["Roomscheme"] </a>
+                            <a class="nav-link btn-outline-light" href="\Vouchers\AllContracts">@localizer["Contracts"] </a>
+                        </div>
+
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseside5" aria-expanded="false" aria-controls="collapseside2">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-table fa-2xs text-dark fs-6  pb-1"></i>
+                        </div>
+                        <span class="nav-link-text mx-3">@localizer["Clients"]</span>
+                    </a>
+                    <div class="collapse ps-4" id="collapseside5">
+                        <div class="navbar-nav  mb-4 rounded bg-gray-100 ">
+                            <a class="nav-link btn-outline-light" href="\Settings\Vendor">@localizer["Vendors"]</a>
+                            @*<a class="nav-link btn-outline-light" href="\Settings\VendorContact">@localizer["Vendor Contact"]  </a>*@
+                            <a class="nav-link btn-outline-light" href="\Settings\Customer">@localizer["Clients"] </a>
+                            @*<a class="nav-link btn-outline-light" href="\Settings\CustomerContact"> @localizer["Client Contact"] </a>*@
+                            <a class="nav-link btn-outline-light" href="\Settings\Employee">@localizer["Employees"] </a>
+                            <a class="nav-link btn-outline-light" href="\Settings\Company">@localizer["Company"] </a>
+
+                        </div>
+
+                    </div>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseside7" aria-expanded="false" aria-controls="collapseside2">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-table fa-2xs text-dark fs-6  pb-1"></i>
+                        </div>
+                        <span class="nav-link-text mx-3">@localizer["Settings"]</span>
+                    </a>
+                    <div class="collapse ps-4" id="collapseside7">
+                        <div class="navbar-nav  mb-4 rounded bg-gray-100 ">
+                            <a class="nav-link btn-outline-light" href="\Settings\Hotel">@localizer["Hotel"]</a>
+                            <a href="\Settings\Room" class="nav-link btn-outline-light">@localizer["Room"]</a>
+                            <a href="\Settings\RoomType" class="nav-link btn-outline-light">@localizer["RoomType"]</a>
+                            <a href="\Settings\RoomStatus" class="nav-link btn-outline-light">@localizer["RoomStatus"]</a>
+                            <a href="\Settings\RoomAsset" class="nav-link btn-outline-light"> @localizer["Room furniture"]</a>
+
+                            <a class="nav-link btn-outline-light" href="\Settings\AssetType">@localizer["Asset Type"] </a>
+                            <a class="nav-link btn-outline-light" href="\Settings\AssetStatus">@localizer["Asset Status"] </a>
+                            <a class="nav-link btn-outline-light" href="\Settings\Currencies">@localizer["Currencies"]</a>
+                            <a class="nav-link btn-outline-light" href="\Settings\IdType"> @localizer["Id Type"]   </a>
+                            <a class="nav-link btn-outline-light" href="\Settings\Country">@localizer["countries"]</a>
+                            <a class="nav-link btn-outline-light" href="\Settings\City"> @localizer["cities"] </a>
+                            <a class="nav-link btn-outline-light" href="\Settings\UnitType">@localizer["UnitType"] </a>
+                            <a class="nav-link btn-outline-light" href="\Settings\TaxType">@localizer["TaxType"] </a>
+
+
+                            <a class="nav-link btn-outline-light" href="\Settings\ContactType">@localizer["Contact Type"] </a>
+                            <a class="nav-link btn-outline-light" href="\Settings\PaymentType">@localizer["PaymentType"] </a>
+                            <a class="nav-link btn-outline-light" href="\Settings\PurposeVisit">@localizer["PurposeVisit"] </a>
+
+                        </div>
+
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseside6" aria-expanded="false" aria-controls="collapseside2">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-table fa-2xs text-dark fs-6  pb-1"></i>
+                        </div>
+                        <span class="nav-link-text mx-3">@localizer["Furniture and stores"]</span>
+                    </a>
+                    <div class="collapse ps-4" id="collapseside6">
+                        <div class="navbar-nav  mb-4 rounded bg-gray-100 ">
+                            <a class="nav-link btn-outline-light" href="\Settings\Store">@localizer["Stores"]</a>
+                            <a class="nav-link btn-outline-light" href="\Settings\StoreResponsable">@localizer["Store Responsables"]   </a>
+                            <a class="nav-link btn-outline-light" href="\Settings\StoreAsset">@localizer["Store content"]</a>
+                            <a class="nav-link btn-outline-light" href="\Settings\Asset">@localizer["Asset"] </a>
+                            <a class="nav-link btn-outline-light" href="\Vouchers\Purchases">@localizer["Purchases"] </a>
+                        </div>
+
+                    </div>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseside30" aria-expanded="false" aria-controls="collapseside3">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-file text-dark fs-6  pb-1"></i>
+                        </div>
+                        <span class="nav-link-text mx-3">@localizer["Reports"]</span>
+                    </a>
+                    <div class="collapse ps-4" id="collapseside30">
+                        <div class="navbar-nav  mb-4 rounded bg-gray-100 ">
+
+                            <a class="nav-link btn-outline-light" href="\Reports\ClientsReport">@localizer["Clients Report"]</a>
+                            <a class="nav-link btn-outline-light" href="\Reports\EmployeesReport">@localizer["Employees Report"]</a>
+                            <a class="nav-link btn-outline-light" href="\Reports\FurnitureReport">@localizer["Naturel of Asset Report"]</a>
+                            <a class="nav-link btn-outline-light" href="\Reports\RoomReport">@localizer["Room Report"]</a>
+                            <a class="nav-link btn-outline-light" href="\Reports\TotalRoomIncomeReport">@localizer["Total Rooms Income Report"]</a>
+                            <a class="nav-link btn-outline-light" href="\Reports\RoomPriceWithoutBreakfast">@localizer["Room Price Without Breakfast"]</a>
+                            <a class="nav-link btn-outline-light" href="\Reports\RoomPriceWithBreakfast">@localizer["Room Price With Breakfast"]</a>
+                            <a class="nav-link btn-outline-light" href="\Reports\ContractsReport">@localizer["Rent Contracts Reports"]</a>
+                            <a class="nav-link btn-outline-light" href="\Reports\HospitalityContractsReport">@localizer["HospitalityContractsReport"]</a>
+                            <a class="nav-link btn-outline-light" href="\Reports\RecieptVouchersReport">@localizer["Reciept Vouchers Report"]</a>
+                            <a class="nav-link btn-outline-light" href="\Reports\Employeehandoverdata">@localizer["Employee handover data"]</a>
+                            <a class="nav-link btn-outline-light" href="\Reports\PurchasesReport">@localizer["Purchases Report"]</a>
+                            <a class="nav-link btn-outline-light" href="\Reports\PurchasesItemsReport">@localizer["Purchases Items Report"]</a>
+
+                        </div>
+
+                    </div>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesidePermissions" aria-expanded="false" aria-controls="collapseside2">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-table fa-2xs text-dark fs-6  pb-1"></i>
+                        </div>
+                        <span class="nav-link-text mx-3">@localizer["Permissions"]</span>
+                    </a>
+                    <div class="collapse ps-4" id="collapsesidePermissions">
+                        <div class="navbar-nav  mb-4 rounded bg-gray-100 ">
+                            <a class="nav-link btn-outline-light" href="\Roles\CreateRoles">@localizer["CreateRoles"]</a>
+                            <a class="nav-link btn-outline-light" href="\Roles\Users">@localizer["Manage User Roles"]   </a>
+                             
+                        </div>
+
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <!-- Navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+
+            <div class="container-fluid py-1 px-3">
+
+                <div class="collapse navbar-collapse w-100 d-flex justify-content-end " id="navbar">
+
+                    <ul class="navbar-nav  justify-content-end">
+                       <li class="nav-item d-flex align-items-center mx-1">
+                            @*<a type="submit" asp-controller="Vouchers" asp-area="" asp-action="UpdateService" class="btn btn-primary">Submit</a>*@
+
+                            <a href="\Vouchers\Services" class="btn btn-outline-primary btn-sm mb-0 me-0">
+                                @localizer["Services"] 
+                            </a>
+                        </li>
+                        <li class="nav-item d-flex align-items-center mx-1">
+                            @*<a class="btn btn-outline-primary btn-sm mb-0 me-0" target="_blank" href="#">Booking</a>*@
+                            <a href="\Settings\Roomscheme" class="btn btn-outline-primary btn-sm mb-0 me-0">
+                                @localizer["Roomscheme"]
+                            </a>
+
+                        </li>
+                        
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="dropdown">
+                                <select id="Sessionhotelid" class="btn btn-outline-primary btn-sm mb-0 me-3 dropdown-toggle" type="button" disabled="disabled"></select>
+                            </div>
+                        </li>
+
+                       
+                     
+                        <li class="nav-item d-xl-none d-flex align-items-center mx-1 ">
+                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                                <div class="sidenav-toggler-inner">
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                </div>
+                            </a>
+                        </li>
+                      @*lang*@
+                        <li class="nav-item d-flex align-items-center mx-2" >
+                      
+                            <partial name="_SelectLanguagePartial" />
+
+                        </li>
+
+
+                        @*logout*@
+                        <li class="nav-item d-flex align-items-center px-2" >
+                            <a href="javascript:;" class="nav-link text-danger font-weight-bold px-0" style="padding-top: 20px ">
+                                    <partial name="_LoginPartial" />
+                                 
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+             
+        </nav>
+        <!-- End Navbar -->
+        @* <div class="container" > *@
+        <div class="row my-2 p-3 overflow-hidden w-100">
+            <div class="card">
+                @RenderBody()
+            </div>
+
+        </div>
+
+    </main>
+
+
+    @*<footer class="border-top footer text-muted">
+    <div class="container">
+    &copy; 2023 - NileHotels - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    دي الى فيها حاجات احمد ؟
+    </footer>*@
+
+    <script src="~/assets/js/core/popper.min.js"></script>
+    <script src="~/assets/js/core/bootstrap.min.js"></script>
+    <script src="~/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="~/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="~/assets/js/plugins/chartjs.min.js"></script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    @* <script src="~/assets/js/visuals.min.js"></script>*@
+
+
+
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <script src="~/js/site.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+
+
+
+
+</body>
+</html>
